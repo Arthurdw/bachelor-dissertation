@@ -1,0 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% misc
+\definecolor{todocolor}{rgb}{0.8,0.8,1.0}
+\definecolor{fixcolor}{rgb}{1,0.8,0.8}
+\definecolor{commentcolor}{rgb}{0.8,1.0,0.8}
+
+\newcommand{\fix}[1]{\todo[color=fixcolor]{#1}}
+\newcommand{\comment}[1]{\todo[color=commentcolor]{#1}}
+\newcommand{\ifix}[1]{\todo[inline,color=fixcolor]{#1}}
+\newcommand{\icomment}[1]{\todo[inline,color=commentcolor]{#1}}
+\newcommand{\itodo}[1]{\todo[inline]{#1}}
+\newcommand{\ignore}[1]{}
+\newcommand{\mccenter}[1]{\multicolumn{1}{c|}{#1}}
+
+\newcommand{\tocchapter}[1]{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
