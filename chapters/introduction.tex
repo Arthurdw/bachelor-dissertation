@@ -1,25 +1,87 @@
 \chapter{Introduction}
+
 \section{General}
-In the world of the web, there are a lot of web frameworks. A web framework allows you to write websites in a more developer-friendly (DX) way, by abstracting lower-level or repetitive concepts away, creating several utilities for improving developer productivity and satisfaction. 
+In web development, there are numerous solutions for creating websites. These solutions streamline website creation by simplifying complex tasks, standardizing and abstracting away common tasks, increasing \acrshort{dx} and ultimately \acrshort{ux}.
 
-\medskip
+\subsubsection{The Paradox of Choice}
+The abundance of web solutions/frameworks presents a challenge known as the paradox of choice \cite{the_decision_lab:paradox_of_choice}. This challenge is particularly pertinent for enterprises, which face additional criteria such as release cycles, licensing, support, state management complexities, backing, and longevity — all crucial factors considering the long-term maintenance requirements of the software.
 
-There are a lot of web frameworks, all promising to be great but this can cause the paradox of choice \cite{the_decision_lab:paradox_of_choice}, which is especially true for enterprises as they impose extra requirements, like release cycles, licensing, support, complex state management, backers, and longevity; as the software will still have to be maintained 10 years from now.
+\subsubsection{Common Challenge}
 
-\medskip
+Whether you're a \textit{(frontend)} Software Engineer, Project Manager, Technical Architect, Startup Founder, or simply someone intrigued by the web, you've likely encountered this dilemma.
 
-If you are a \textit{(frontend)} Software Engineer, Project Manager, Technical Architect, Startup Founder, or just generally interested in the web you have most likely faced the same hurdle.
-This thesis was created in collaboration with the IT department of H. Essers, one of the biggest Transport and Logistics companies in Europe, based in Genk \textit{(Belgium)}. Their task is to create custom software to optimize business processes. This department consists primarily of Java and IBM AS/400 \textit{(now known as "IBM i" \cite{enwiki:ibm_i})} developers. On the Java side, they are currently using the \gls{full_stack} framework Vaadin; this is all in the Java programming language. Despite Vaadin's benefits, the team has encountered limitations within the framework that demand more effort than initially anticipated for certain actions.
+\subsubsection{Collaborative Project}
 
+This dissertation is a collaboration with the IT department of H. Essers, a major European Transport and Logistics company headquartered in Genk, Belgium. Their objective is to develop custom software solutions to optimize business processes. The department mainly comprises Java and IBM AS/400 \textit{(now called "IBM i" \cite{enwiki:ibm_i})} developers. They utilize the Vaadin \gls{full_stack} framework for Java. Despite its advantages, the team has faced limitations within Vaadin that require more effort than initially anticipated.
 
 \section{The problem}
-\itodo{Write this}
-Specific limiting scope. The specific problem statement you are addressing. 
+
+User interfaces are crucial components of any application, and although websites have been around for many years, the industry is constantly evolving. Nowadays, development teams have a variety of web frameworks, architectures, and principles to choose from, making it difficult to decide which one is the best for a given task. This research aims to provide an answer to this difficult question.
 
 \section{Research question}
-\itodo{Write this}
-Based on the above problem statement, literally formulate the concrete research question. Clarify that you will seek an answer to this throughout the bachelor dissertation.
+
+What is the most suitable web solution for what kind of application?
+
+\subsection{Web Solutions}
+\label{subsec:intro:research:web_solutions}
+
+Research has been conducted into:
+
+\begin{itemize}
+    \item React
+    \item Vue
+    \item Svelte
+    \item Angular
+    \item Lit
+    \item Hilla
+    % \item Thymeleaf + HTMX
+    % \item Go Templ + HTMX
+    % \item Leptos
+\end{itemize}
 
 \section{Experiment}
-\itodo{Write this}
-What methods will you use to answer your research question? Briefly discuss your research design (type of research, data collection, data description and analysis method) here. This section is discussed in detail in the next chapter.
+
+The same project was built in each solution to ensure equal and objective evaluation. 
+
+\subsection{Project Requirements}
+\label{subsec:intro:experiment:project_requirements}
+
+These requirements will provide valuable insights. The assessment is conducted objectively using the details stated in \ref{subsec:intro:experiment:evaluation}.
+
+\begin{itemize}
+    \item General Layout \textit{(see \ref{fig:requirements:layout})}
+    \item Interactive Search \textit{(with URL query reflection)} \textit{(see \ref{fig:requirements:search}})
+    \item \textit{(data)} Grid \textit{(see \ref{fig:requirements:grid}})
+    \item \textit{(data)} Grid in \textit{(data)} Grid \textit{(see \ref{fig:requirements:grid_in_grid}})
+    \item Normal Forms \textit{(with validation)} \textit{(see \ref{fig:requirements:form_1} and \ref{fig:requirements:form_2}})
+    \item Wizard Forms \textit{(see \ref{fig:requirements:wizard_1} and \ref{fig:requirements:wizard_2}})
+    \item Internationalization
+    \item Drag and Drop \textit{(see \ref{fig:requirements:dnd}})
+    \item Progressive Loading
+    \item Global State Management and Reactions
+    \item Reflective Routing \textit{(see \ref{fig:requirements:routing_1}, \ref{fig:requirements:routing_2}, \ref{fig:requirements:routing_3}, \ref{fig:requirements:routing_4}, and \ref{fig:requirements:routing_5})}
+\end{itemize}
+
+\subsection{Evaluation}
+\label{subsec:intro:experiment:evaluation}
+
+Because the research question is broad, it will be answered by dividing it into smaller evaluation points, which are ranked objectively using a suitable method.
+
+\begin{itemize}
+    \item Community \footnote{Points by size, see \ref{app:metrics:community}}
+    \item Professional Support \footnote{\Gls{predicate} \label{fn:predicate}}
+    \item Documentation \textit{(interactive?)} \footnote{Likert Scale \label{fn:likert_scale}}
+    \item Ecosystem \footnote{Points are 70\% by quality and 30\% by size, see \ref{app:metrics:ecosystem:quality} and \ref{app:metrics:ecosystem:size} respectively}
+    \item Usage by other enterprises \footref{fn:likert_scale}
+    \item \textit{(added)} Size of solution \footnote{Likert Scale, but smaller is better}
+    \item Relative performance of solution \footref{fn:likert_scale}
+    \item Complexity \footnote{Evaluated using the Likert Scale by easiness/speed to learn, state management, boilerplate, and API integration}
+\end{itemize}
+
+\subsubsection{Likert Scale}
+
+Some evaluation will be done using a Likert Scale \cite{enwiki:likert_scale}, with the values:
+
+\begin{center}
+    \textsc{bad/not present} < \textsc{medium/ok} < \textsc{great}.
+\end{center}

@@ -9,11 +9,23 @@
 \newcommand{\ifix}[1]{\todo[inline,color=fixcolor]{#1}}
 \newcommand{\icomment}[1]{\todo[inline,color=commentcolor]{#1}}
 \newcommand{\itodo}[1]{\todo[inline]{#1}}
-\newcommand{\ignore}[1]{}
 \newcommand{\mccenter}[1]{\multicolumn{1}{c|}{#1}}
 
 \newcommand{\tocchapter}[1]{
     \chapter*{#1}
     \addcontentsline{toc}{chapter}{#1}
+}
+
+\newcommand{\createappendixfigure}[3]{
+    \createappendixfigurewidth{#1}{#2}{#3}{\textwidth}
+}
+
+\newcommand{\createappendixfigurewidth}[4]{
+    \begin{figure}[H]
+        \centering
+        \frame{\includegraphics[width=#4]{images/appendix/#1}}
+        \caption{\MakeLowercase{#2}}
+        \label{#3}
+    \end{figure}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

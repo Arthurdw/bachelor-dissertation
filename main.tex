@@ -13,8 +13,16 @@
 \input{config}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Glossaries and acronyms
-\usepackage[acronym]{glossaries}
+\usepackage[acronym,
+            toc]{glossaries}
 \input{glossary}
 \makeglossaries
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,7 +41,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks and local references
 \usepackage[hyperindex=true,
-			bookmarks=true,
+            bookmarks=true,
             pdftitle={Bachelor Dissertation - \thesistitle by \thesisauthor}
             pdfauthor={\thesisauthor}
             colorlinks=false,
@@ -55,6 +63,7 @@
 % Assets/images
 \usepackage{graphicx}
 \usepackage[inkscapeformat=png]{svg}
+\usepackage{float}
 \graphicspath{{images/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -65,7 +74,7 @@
     \fancyhf{}
     \setlength{\headheight}{22.7pt}
     \fancyhead{}
-    \fancyhead[RO,LE]{Academic year 2023-2024}
+    \fancyhead[RO,LE]{Academic year \academicyear}
     \fancyhead[LO,RE]{\thesisauthor}
     
     \fancyfoot{}
@@ -144,10 +153,10 @@
 \input{chapters/experiment}
 \input{chapters/conclusion}
 
-\input{chapters/ai-prompts}
-
 \printglossary[type=\acronymtype]
 \printglossary
+
+\input{chapters/ai-prompts}
 
 \tocchapter{Bibliography}
 \printbibliography[heading=bib]
