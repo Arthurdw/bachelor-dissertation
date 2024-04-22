@@ -7,4 +7,4 @@ Welcome to my bachelor's dissertation about web frameworks.
 
 ## For students
 
-If you plan to compose your thesis using LaTeX, feel free to utilize this template, similar to how I did. However, it's important to acknowledge this usage at the outset of your bibliography. Additionally, be sure to seek approval from your advisor beforehand.
+If you plan to compose your thesis using LaTeX, feel free to utilize this template, similar to how I did. However, it's important to acknowledge this usage at the outset of your bibliography *(this should happen automatically once you change the `config.tex` file)*. Additionally, be sure to seek approval from your advisor beforehand.

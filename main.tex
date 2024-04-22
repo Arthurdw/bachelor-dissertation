@@ -13,9 +13,10 @@
 \input{config}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Fonts
+% Fonts & text
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{dirtytalk}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -74,12 +75,12 @@
     \fancyhf{}
     \setlength{\headheight}{22.7pt}
     \fancyhead{}
-    \fancyhead[RO,LE]{Academic year \academicyear}
-    \fancyhead[LO,RE]{\thesisauthor}
+    \fancyhead[L]{\thesisauthor}
+    \fancyhead[R]{Academic year \academicyear}
     
     \fancyfoot{}
-    \fancyfoot[LE]{\nouppercase{\hfill \thepage}}
-    \fancyfoot[LO]{\nouppercase{\thepage \hfill}}
+    \fancyfoot[LE]{\nouppercase{\thepage \hfill}}
+    \fancyfoot[LO]{\nouppercase{\hfill \thepage}}
     
     \renewcommand{\headrule}{
         \vspace{-2pt}
@@ -94,12 +95,12 @@
     \fancyhf{}
     \setlength{\headheight}{22.7pt}
     \fancyhead{}
-    \fancyhead[RO,LE]{Academic year \academicyear}
-    \fancyhead[LO,RE]{\thesisauthor}
+    \fancyhead[L]{\thesisauthor}
+    \fancyhead[R]{Academic year \academicyear}
     
     \fancyfoot{}
-    \fancyfoot[LE]{\nouppercase{\rightmark \hfill \leftmark \hspace{5mm} | \hspace{5mm} \thepage}}
-    \fancyfoot[LO]{\nouppercase{\thepage \hspace{5mm} | \hspace{5mm} \leftmark \hfill \rightmark}}
+    \fancyfoot[LE]{\nouppercase{\thepage \hspace{5mm} | \hspace{5mm} \leftmark \hfill \rightmark}}
+    \fancyfoot[LO]{\nouppercase{\leftmark \hfill \rightmark \hspace{5mm} | \hspace{5mm} \thepage}}
     
     \renewcommand{\headrule}{
         \vspace{-2pt}
@@ -136,18 +137,23 @@
 \listoftodos
 
 \include{titlepage}
+\emptypage
 
 \input{chapters/consultation}
 \thispagestyle{plain}
+\emptypage
 
 \input{chapters/foreword}
 \thispagestyle{plain}
+\emptypage
 
 \tableofcontents
 \thispagestyle{plain}
+\emptypage
 
 \newpage
 \pagenumbering{arabic} 
+\pagestyle{howest-section}
 
 \input{chapters/introduction}
 \input{chapters/experiment}
@@ -159,6 +165,13 @@
 \input{chapters/ai-prompts}
 
 \tocchapter{Bibliography}
+\def \templateauthor{Arthur De Witte} % DO NOT CHANGE, CHANGING THIS BLOCK IS A COPYRIGHT VIOLATION!
+\ifx\thesisauthor\templateauthor
+\else
+    \normalsize
+    This \LaTeX\ dissertation template for HOWEST has been created by \templateauthor\ \textit{(\url{https://wwww.arthurdw.com})} and is publicly available at: \\ \url{https://github.com/arthurdw/bachelor-dissertation}. \\
+    \small
+\fi
 \printbibliography[heading=bib]
 
 \appendix
