@@ -4,27 +4,70 @@
 \subsection{Overview}
 \label{subsec:react:overview}
 
-React is a \gls{library} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \textit{(see \ref{subsec:jsx})}. 
+React is a \gls{library} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \cite{react:introduction_jsx} \textit{(see \ref{subsec:jsx})}. 
 The library is primarily intended for the render layer and does not include native support for features such as routing and \acrshort{i18n}. However, this does not mean that you cannot easily incorporate these features, as the library is part of a vast community ecosystem that includes many high-quality packages that specialize in various areas.
 
-React uses a different approach than plain JavaScript by utilizing the \acrshort{vdom} \cite{react:vdom} \textit{(see \ref{subsec:vdom})} to manage content instead of directly manipulating the \acrshort{dom}. It attempts to detect changes using the reconciliation algorithm \textit{(see \ref{subsec:react:reconciliation_algorithm})} in the browser at runtime \cite{react:reconciliation}.
+React uses a different approach than plain \acrlong{js} by utilizing the \acrshort{vdom} \cite{react:vdom} \textit{(see \ref{subsec:vdom})} to manage content instead of directly manipulating the \acrshort{dom}. It attempts to detect changes using the reconciliation algorithm \textit{(see \ref{subsec:react:reconciliation_algorithm})} in the browser at runtime \cite{react:reconciliation}.
 
 \subsection{JSX}
 \label{subsec:jsx}
 
-\acrfull{jsx} is ...
+The rendering logic often gets tightly coupled with other \acrshort{ui} logic. Instead of separating things by putting markup and logic in separate files, we can achieve our separation of concerns \cite{enwiki:separation_of_concerns} by creating loosely coupled units called \textsl{components}. These components should ideally be pure, making the logic predictable, testable, and allowing us to make render optimizations like memoization \cite{enwiki:pure_function, react:keeping_components_pure}.
+
+We can use \acrfull{jsx}, which is neither \acrshort{js} nor a string. Instead, it combines \textit{(as the name implies)} \acrshort{xml}/\acrshort{html} syntax with \acrshort{js} capabilities \textit{(demonstrated in \autoref{lst:jsx_interpolation})}. We can easily create components by defining a method that returns \acrshort{jsx}, essentially currying \cite{enwiki:currying} its context \textit{(arguments, state, and more; demonstrated in \autoref{lst:jsx_component})}.
+
+\lstinputlisting[
+    label={lst:jsx_interpolation},
+    caption=Simple \acrshort{jsx} interpolation \cite{react:introduction_jsx, meta:jsx}
+]{code/jsx_interpolation.tsx}
+
+\lstinputlisting[
+    label={lst:jsx_component},
+    caption=Simple \acrshort{jsx} component
+]{code/jsx_component.tsx}
+
+\subsection{Update Process}
+\label{subsec:react:update_process}
+
+The update process of React is highly reliable. It involves testing the entire React-meta codebase, which comprises over 50,000 components, to determine if deprecating a method requires many changes. Only after this testing, the React team decides if deprecation is necessary. If it is, they release a warning to the open-source community, which remains for one version. After that, the deprecated item is completely removed. In case many changes are needed to address the deprecation warning, scripts are built to make the migration as automatic as possible \cite{react:design_principles}.
 
 \subsection{Virtual DOM}
 \label{subsec:vdom}
 
-The \acrshort{vdom} is...
+The \acrfull{vdom} is a mirrored version of the real \acrshort{dom}. Represented as in-memory objects \textit{(eg. \autoref{lst:vdom_representation})} which can easily be traversed \textit{(as no \acrshort{dom} needs to be parsed)}, checked for changes, and used for other optimizations. For example, if a type of a \acrshort{vdom} element is changed it will tear down the old tree and rebuild the tree from scratch, but if the type is the same it will only update the attributes. Or if a key is set the reconciler can easily detect what items need to update  \textit{(\ref{subsec:react:reconciliation_algorithm}, \cite{react:reconciliation, acdlite:react_fiber_architecture})}.
 
-\itodo{write about vdom}
+Although the \acrshort{vdom} incurs more overhead as the browser has to keep the entirety in memory, it offers greater flexibility for the reconciler. For instance, the React reconciler can not only process the \acrshort{dom} but also native iOS and Android displays \textit{(with React Native)} \cite{acdlite:react_fiber_architecture}. Additionally, the \acrshort{vdom} enables more unique optimizations such as the pull technique instead of push, which allows the prioritization of user interactions over background tasks \cite{react:design_principles}. Moreover, it allows the renders to be batched instead of each one being its own operation.
 
+\lstinputlisting[
+    label={lst:vdom_representation},
+    caption=\acrshort{json} representation of \acrshort{vdom} element \cite{react:components_elements_and_instances, react:react_basic}
+]{code/vdom.json}
+
+\lstinputlisting[
+    language=xml,
+    label={lst:vdom_representation_html},
+    caption=\acrshort{html} equivalent of \autoref{lst:vdom_representation}
+]{code/vdom.html}
 
 \subsection{Reconciliation Algorithm}
 \label{subsec:react:reconciliation_algorithm}
-\itodo{write about the reconciliation algorithm}
+
+There are generic solutions to the algorithmic problem of diffing and transforming one tree into another. However, the existing algorithms are expensive at $O(n^3)$ \cite{bille2005survey}. Because this is too expensive for a web framework, the react reconciler implements a $O(n)$ algorithm based on two assumptions \cite{react:reconciliation}.
+
+\begin{enumerate}
+    \item \say{Two elements of different types will produce different tries.} which is why if the type is different the tear will be torn down.
+    \item \say{The developer can hint at which child elements may be stable across different renders with a \textsl{key} prop.}
+\end{enumerate}
+
+
+\subsection{State Management}
+\label{subsec:react:state_management}
+\itodo{write about state management \\
+state reload heel component
+use state kan gebruikt worden om dit niet te doen en reactief te luisteren
+context kan je gebruiken om prop drilling te voorkomen
+lift up laat je toe om state te delen tussen neighboring componenten
+}
 
 \subsection{Redux}
 \label{subsec:redux}
