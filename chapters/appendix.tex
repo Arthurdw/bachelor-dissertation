@@ -1,33 +1,144 @@
 \chapter{Metrics}
 
-\begin{table}[h]
+\section{Community Size Rating}
+
+\normalsize
+The largest statistic gets chosen out of: GitHub stars or Discord members.
+
+\begin{table}[H]
     \centering
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{|c|c|}
         \hline
-        \textbf{Method} & \textbf{Score} \\
+        \textbf{Range} & \textbf{Score} \\
         \hline
-        bruh            & hi             \\ \hline
+        < 500          & 0              \\ \hline
+        < 1,000        & 1              \\ \hline
+        < 3,000        & 2              \\ \hline
+        < 6,000        & 3              \\ \hline
+        < 12,000       & 4              \\ \hline
+        < 25,000       & 5              \\ \hline
+        < 50,000       & 6              \\ \hline
+        < 100,000      & 7              \\ \hline
+        < 150,000      & 8              \\ \hline
+        < 200,000      & 9              \\ \hline
+        > 200,000      & 10             \\ \hline
     \end{tabular}
-    \caption{community size ratings}
+    \caption{scores for size of community}
     \label{tab:metrics:community}
 \end{table}
 
-\itodo{Add table describing the expected ratings for a certain community size}
-
 \section{Ecosystem Ratings}
 
-\subsection{quality}
+\subsection{GitHub Stars}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Range} & \textbf{Score} \\
+        \hline
+        < 500          & 0              \\ \hline
+        < 1,000        & 1              \\ \hline
+        < 3,000        & 2              \\ \hline
+        < 6,000        & 3              \\ \hline
+        < 12,000       & 4              \\ \hline
+        < 25,000       & 5              \\ \hline
+        < 50,000       & 6              \\ \hline
+        < 100,000      & 7              \\ \hline
+        < 150,000      & 8              \\ \hline
+        < 200,000      & 9              \\ \hline
+        > 200,000      & 10             \\ \hline
+    \end{tabular}
+    \caption{scores for amount of stars}
+    \label{tab:metrics:stars}
+\end{table}
+
+
+\subsection{Quality}
 \label{app:metrics:ecosystem:quality}
 
-Quality is determined by the number of features, users/stars, and documentation coverage. It is assumed that libraries with many users/stars and great documentation coverage have high quality. For feasibility reasons, this is checked for the top 25 downloaded dependencies.
+Quality is determined by stars, documentation, and testing coverage. It is assumed that libraries with many users/stars and great documentation coverage have high quality. For feasibility reasons, this is checked for the top 25 downloaded dependencies.
 
-\itodo{Add table describing the expected ratings by quality}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|}
+        \hline
+        \textbf{Symbol} & \textbf{Note}                                         \\
+        \hline
+        \textbf{*}      & \gls{predicate}                                       \\ \hline
+        \textbf{-}      & not applicable                                        \\ \hline
+        \textbf{+}      & refers to the scores from \autoref{tab:metrics:stars} \\ \hline
+    \end{tabular}
+    \caption{special symbols}
+    \label{tab:metrics:symbols}
+\end{table}
+
+\subsubsection{React}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|l|c|c|c|}
+        \hline
+        nr & \textbf{Tag}                        & \textbf{Stars}$^+$ & \textbf{Documentation}$^*$ & \textbf{Tests}$^*$ \\
+        \hline
+        1  & facebook/react                      & 10                 & yes                        & yes                \\ \hline
+        2  & vercel/next.js                      & 8                  & yes                        & yes                \\ \hline
+        3  & facebook/react-native               & 8                  & yes                        & yes                \\ \hline
+        4  & facebook/create-react-app           & 8                  & yes                        & yes                \\ \hline
+        5  & mui/material-ui                     & 7                  & yes                        & yes                \\ \hline
+        6  & ant-design/ant-design               & 7                  & yes                        & yes                \\ \hline
+        7  & storybookjs/storybook               & 7                  & yes                        & yes                \\ \hline
+        8  & enaqx/awesome-react                 & 7                  & yes                        & -                  \\ \hline
+        9  & leonardomso/33-js-concepts          & 7                  & yes                        & -                  \\ \hline
+        10 & shadcn-ui/ui                        & 7                  & yes                        & yes                \\ \hline
+        11 & gatsbyjs/gatsby                     & 7                  & yes                        & yes                \\ \hline
+        12 & facebook/docusaurus                 & 7                  & yes                        & yes                \\ \hline
+        13 & remix-run/react-router              & 7                  & yes                        & yes                \\ \hline
+        14 & ionic-team/ionic-framework          & 7                  & yes                        & yes                \\ \hline
+        15 & meteor/meteor                       & 6                  & yes                        & yes                \\ \hline
+        16 & pmndrs/zustand                      & 6                  & yes                        & yes                \\ \hline
+        17 & appwrite/appwrite                   & 6                  & yes                        & yes                \\ \hline
+        18 & streamich/react-use                 & 6                  & yes                        & yes                \\ \hline
+        19 & brillout/awesome-react-components   & 6                  & yes                        & -                  \\ \hline
+        20 & styled-components/styled-components & 6                  & yes                        & yes                \\ \hline
+        21 & TanStack/query                      & 6                  & yes                        & yes                \\ \hline
+        22 & react-hook-form/react-hook-form     & 6                  & yes                        & yes                \\ \hline
+        23 & chakra-ui/chakra-ui                 & 6                  & yes                        & no                 \\ \hline
+        24 & preactjs/preact                     & 6                  & yes                        & yes                \\ \hline
+        25 & jaredpalmer/formik                  & 6                  & yes                        & yes                \\ \hline
+        -  & \textbf{Average}                    & \textbf{6.8}       & \textbf{1}                 & \textbf{0.956}     \\ \hline
+    \end{tabular}
+    \caption{react ecosystem ratings}
+    \label{tab:metrics:react:ratings}
+\end{table}
+
+Score: $(6.8 / 10 + 1 + 0.956) / 3 = 0.878666\dots \approx 0.9$
 
 \subsection{Size}
 \label{app:metrics:ecosystem:size}
 
-\itodo{Add table describing the expected ratings by size}
+The size is based on the amount of GitHub results for the solution name.
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Range} & \textbf{Score} \\
+        \hline
+        < 10,000       & 0              \\ \hline
+        < 20,000       & 1              \\ \hline
+        < 50,000       & 2              \\ \hline
+        < 100,000      & 3              \\ \hline
+        < 250,000      & 4              \\ \hline
+        < 500,000      & 5              \\ \hline
+        < 750,000      & 6              \\ \hline
+        < 1,000,000    & 7              \\ \hline
+        < 2,500,000    & 8              \\ \hline
+        < 5,000,000    & 9              \\ \hline
+        > 5,000,000    & 10             \\ \hline
+    \end{tabular}
+    \caption{scores for size }
+    \label{tab:metrics:size}
+\end{table}
 
 \chapter{Project Requirements}
 
