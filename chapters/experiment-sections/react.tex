@@ -4,7 +4,7 @@
 \subsection{Overview}
 \label{subsec:react:overview}
 
-React is a \gls{library} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \cite{react:introduction_jsx} \textit{(see \ref{subsec:jsx})}. 
+React is a \gls{library} \cite{lagadritu:limitations_react} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \cite{react:introduction_jsx} \textit{(see \ref{subsec:jsx})}. 
 The library is primarily intended for the render layer and does not include native support for features such as routing and \acrshort{i18n}. However, this does not mean that you cannot easily incorporate these features, as the library is part of a vast community ecosystem that includes many high-quality packages that specialize in various areas.
 
 React uses a different approach than plain \acrlong{js} by utilizing the \acrshort{vdom} \cite{react:vdom} \textit{(see \ref{subsec:vdom})} to manage content instead of directly manipulating the \acrshort{dom}. It attempts to detect changes using the reconciliation algorithm \textit{(see \ref{subsec:react:reconciliation_algorithm})} in the browser at runtime \cite{react:reconciliation}.
@@ -29,7 +29,7 @@ We can use \acrfull{jsx}, which is neither \acrshort{js} nor a string. Instead, 
 \subsection{Update Process}
 \label{subsec:react:update_process}
 
-The update process of React is highly reliable. It involves testing the entire React-meta codebase, which comprises over 50,000 components, to determine if deprecating a method requires many changes. Only after this testing, the React team decides if deprecation is necessary. If it is, they release a warning to the open-source community, which remains for one version. After that, the deprecated item is completely removed. In case many changes are needed to address the deprecation warning, scripts are built to make the migration as automatic as possible \cite{react:design_principles}.
+The update process of React is highly reliable. It involves testing the entire React-meta codebase, which comprises over 50,000 components, to determine if deprecating a method requires many changes. Only after this testing, does the React team decide if deprecation is necessary. If it is, they release a warning to the open-source community, which remains for one version. After that, the deprecated item is completely removed. In case many changes are needed to address the deprecation warning, scripts are built to make the migration as automatic as possible \cite{react:design_principles}.
 
 \subsection{Virtual DOM}
 \label{subsec:vdom}
@@ -49,6 +49,7 @@ Although the \acrshort{vdom} incurs more overhead as the browser has to keep the
     caption=\acrshort{html} equivalent of \autoref{lst:vdom_representation}
 ]{code/vdom.html}
 
+\newpage
 \subsection{Reconciliation Algorithm}
 \label{subsec:react:reconciliation_algorithm}
 
@@ -59,19 +60,74 @@ There are generic solutions to the algorithmic problem of diffing and transformi
     \item \say{The developer can hint at which child elements may be stable across different renders with a \textsl{key} prop.}
 \end{enumerate}
 
-
 \subsection{State Management}
 \label{subsec:react:state_management}
-\itodo{write about state management \\
-state reload heel component
-use state kan gebruikt worden om dit niet te doen en reactief te luisteren
-context kan je gebruiken om prop drilling te voorkomen
-lift up laat je toe om state te delen tussen neighboring componenten
-}
+
+State management in React relies on hooks, which are specialized functions. These hooks serve specific purposes within React components. Unlike traditional JavaScript assignments, manipulating state in React requires the use of hooks and their associated methods. Additionally, React enforces immutability, meaning once state is set, it cannot be directly changed. This immutability adds complexity to learning React, as it imposes restrictions on how actions can be performed.
+
+When a state is updated in React, the reconciler detects these changes and initiates a refresh of the entire component in the next tick. To optimize performance and avoid unnecessary refreshes, it is recommended to:
+
+\begin{itemize}
+    \item Split components into smaller, more manageable pieces.
+    \item Minimize side effects within components.
+    \item Utilize memoization where applicable.
+\end{itemize}
+
+By following these practices, developers can ensure efficient state management and enhance the performance of React applications \cite{enwiki:pure_function}.
+
+\subsubsection{Sharing State}
+
+In React, there are various methods for sharing state, with one popular approach being to lift the state up \textit{(\autoref{fig:state_lifted})} \cite{react:sharing_state}. This method aligns with the principle of a \say{"\textsl{single source of truth}"} \cite{enwiki:single_source_of_truth}, meaning that while the state isn't confined to just one place, there's a central component responsible for managing it. This eliminates the need for duplicating state across components, thus reducing error-prone practices.
+
+However, this approach has its drawbacks. For nested components, the state must be passed down through each level, leading to code bloat and unnecessary dependencies between components. To address this issue, a context provider can be employed. This provider enables all nested children, regardless of depth, to access and respond to the state without requiring explicit prop drilling or predefined component structures \textit{(\autoref{fig:context_provider})} \cite{react:passing_data_deeply_with_context}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}[t]{0.3\textwidth}
+        \centering
+        \includesvg[height=12em]{images/experiment/react/each_component_its_own_state}
+        \caption{per component state}
+        \label{fig:state_regular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \centering
+        \includesvg[height=12em]{images/experiment/react/state_lifted}
+        \caption{state lifted up \textit{(shared state)}}
+        \label{fig:state_lifted}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.3\textwidth}
+        \centering
+        \includesvg[height=12em]{images/experiment/react/context_provider}
+        \caption{context provides state to all}
+        \label{fig:context_provider}
+    \end{minipage}
+\end{figure}
 
 \subsection{Redux}
 \label{subsec:redux}
-\itodo{write about redux}
+
+Incorporating context to manage state is useful, but it's typically confined to the parent component. In most projects, developers opt to place the global state in the root \textit{(app)} component \textit{(\autoref{fig:multiple_root_providers})}. While this approach suffices for a few states, it becomes unwieldy when multiple states need to be shared.
+
+To mitigate this challenge, developers often turn to Redux, a state management library. Redux operates akin to a global context, with each state, termed a \say{store}, linked directly to the Redux provider \textit{(\autoref{fig:redux})} \cite{redux:overview}. This setup ensures that each state maintains its own logic and adheres to consistent, standardized definitions.
+
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}[t]{0.3\textwidth}
+        \centering
+        \includesvg[height=12em]{images/experiment/react/multiple_root_providers}
+        \caption{serveral providers provide state to all}
+        \label{fig:multiple_root_providers}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.6\textwidth}
+        \centering
+        \includesvg[height=12em]{images/experiment/react/redux}
+        \caption{several Redux stores provide state to all}
+        \label{fig:redux}
+    \end{minipage}
+\end{figure}
 
 \subsection{Strengths}
 \label{subsec:react:strengths}
