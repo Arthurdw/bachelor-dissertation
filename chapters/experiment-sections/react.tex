@@ -132,11 +132,61 @@ To mitigate this challenge, developers often turn to Redux, a state management l
 \subsection{Strengths}
 \label{subsec:react:strengths}
 \begin{itemize}
-    \item strength! \todo{write strengths}
+    \item \acrshort{jsx} is intuitive and easy to write
+    \item big ecosystem
+    \item well-known and used among developers 
+    \item documentation is great \textit{(includes interactive examples)}
+    \item big community \textit{(over 230,000 members on Discord)}
+    \item lots of enterprise usage, even in the Fortune 500 companies \cite{buildin:react_companies}
+    \item not that performant compared to native JS, but a one-click addon called \textsl{Million} \cite{million} makes this problem go away
+    \item professional support is widely available on top of the community support
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:react:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{write weaknesses}
+    \item \acrshort{vdom} overhead
+    \item client-side rendered \textit{(solution: Next.js or canary \say{use server} directive \cite{react:use_server_directive})}
+    \item State management can be complex. Even if you are familiar with bigger components, managing their state can become difficult quickly.
+    \item basic dependencies \textit{(React, Redux, \acrshort{i18n})} that get sent to the client are about ~12MB which is relatively big and can slow down the initial load
 \end{itemize}
+
+\subsection{Scores}
+\label{subsec:react:scores}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}             & \textbf{Score} \\
+        \hline
+        Easiness/speed to learn     & 1                                                 \\ \hline
+        State management            & 0.5                                               \\ \hline
+        Boilerplate                 & 0.5 \textit{(components: 1, state management: 0)} \\ \hline
+        \acrshort{api} integration  & 0 \textit{(default browser fetch \acrshort{api})} \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:react:complexity}
+\end{table}
+
+\itodo{community, ecosystem, relative performance}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}                     & \textbf{Score} \\
+        \hline
+        Community                           & -                                             \\ \hline
+        Professional Support                & 1                                             \\ \hline
+        Documentation (interactive?)        & 0.5                                           \\ \hline
+        Ecosystem                           & -                                             \\ \hline
+        Usage by other enterprises          & 1                                             \\ \hline
+        \textit{(added)} Size of solution   & 0.5                                           \\ \hline
+        Relative performance of solution    & -                                             \\ \hline
+        Complexity                          & 0.5 \textit{(\autoref{tab:react:complexity})} \\ \hline
+        Server Side Rendered (SSR)          & 0.5                                           \\ \hline
+    \end{tabular}
+    \caption{React general scores}
+    \label{tab:react:scores}
+\end{table}
