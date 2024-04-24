@@ -4,7 +4,7 @@
 \subsection{Overview}
 \label{subsec:react:overview}
 
-React is a \gls{library} \cite{lagadritu:limitations_react} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \cite{react:introduction_jsx} \textit{(see \ref{subsec:jsx})}. 
+React is a \gls{library} \cite{lagadritu:limitations_react} created by Meta \textit{(originally known as Facebook)}. Its recommended usage is in combination with \acrshort{jsx} \cite{react:introduction_jsx} \textit{(see \ref{subsec:jsx})}.
 The library is primarily intended for the render layer and does not include native support for features such as routing and \acrshort{i18n}. However, this does not mean that you cannot easily incorporate these features, as the library is part of a vast community ecosystem that includes many high-quality packages that specialize in various areas.
 
 React uses a different approach than plain \acrlong{js} by utilizing the \acrshort{vdom} \cite{react:vdom} \textit{(see \ref{subsec:vdom})} to manage content instead of directly manipulating the \acrshort{dom}. It attempts to detect changes using the reconciliation algorithm \textit{(see \ref{subsec:react:reconciliation_algorithm})} in the browser at runtime \cite{react:reconciliation}.
@@ -116,7 +116,7 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \centering
     \begin{minipage}[t]{0.3\textwidth}
         \centering
-        \includesvg[height=12em]{images/experiment/react/multiple_root_providers}
+        \includesvg[height=14em]{images/experiment/react/multiple_root_providers}
         \caption{serveral providers provide state to all}
         \label{fig:multiple_root_providers}
     \end{minipage}
@@ -134,7 +134,7 @@ To mitigate this challenge, developers often turn to Redux, a state management l
 \begin{itemize}
     \item \acrshort{jsx} is intuitive and easy to write
     \item big ecosystem
-    \item well-known and used among developers 
+    \item well-known and used among developers
     \item documentation is great \textit{(includes interactive examples)}
     \item big community \textit{(over 230,000 members on Discord)}
     \item lots of enterprise usage, even in the Fortune 500 companies \cite{buildin:react_companies}
@@ -158,12 +158,12 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \centering
     \begin{tabular}{|l|l|}
         \hline
-        \textbf{Method}             & \textbf{Score} \\
+        \textbf{Method}            & \textbf{Score}                                    \\
         \hline
-        Easiness/speed to learn     & 1                                                 \\ \hline
-        State management            & 0.5                                               \\ \hline
-        Boilerplate                 & 0.5 \textit{(components: 1, state management: 0)} \\ \hline
-        \acrshort{api} integration  & 0 \textit{(default browser fetch \acrshort{api})} \\ \hline
+        Easiness/speed to learn    & 1                                                 \\ \hline
+        State management           & 0.5                                               \\ \hline
+        Boilerplate                & 0.5 \textit{(components: 1, state management: 0)} \\ \hline
+        \acrshort{api} integration & 0 \textit{(default browser fetch \acrshort{api})} \\ \hline
     \end{tabular}
     \caption{complexity}
     \label{tab:react:complexity}
@@ -175,17 +175,17 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \centering
     \begin{tabular}{|l|l|}
         \hline
-        \textbf{Method}                     & \textbf{Score} \\
+        \textbf{Method}                   & \textbf{Score}                                \\
         \hline
-        Community                           & -                                             \\ \hline
-        Professional Support                & 1                                             \\ \hline
-        Documentation (interactive?)        & 0.5                                           \\ \hline
-        Ecosystem                           & -                                             \\ \hline
-        Usage by other enterprises          & 1                                             \\ \hline
-        \textit{(added)} Size of solution   & 0.5                                           \\ \hline
-        Relative performance of solution    & -                                             \\ \hline
-        Complexity                          & 0.5 \textit{(\autoref{tab:react:complexity})} \\ \hline
-        Server Side Rendered (SSR)          & 0.5                                           \\ \hline
+        Community                         & -                                             \\ \hline
+        Professional Support              & 1                                             \\ \hline
+        Documentation (interactive?)      & 0.5                                           \\ \hline
+        Ecosystem                         & -                                             \\ \hline
+        Usage by other enterprises        & 1                                             \\ \hline
+        \textit{(added)} Size of solution & 0.5                                           \\ \hline
+        Relative performance of solution  & -                                             \\ \hline
+        Complexity                        & 0.5 \textit{(\autoref{tab:react:complexity})} \\ \hline
+        Server Side Rendered (SSR)        & 0.5                                           \\ \hline
     \end{tabular}
     \caption{React general scores}
     \label{tab:react:scores}
