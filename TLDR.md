@@ -10,7 +10,7 @@ A identical project was setup for each web solution, this includes:
 - (data) grid in (data) grid
 - form wizard with validation
 - normal forms without a wizard
-- internationalisation
+- internationalization
 - progressive loading (for the (data) grid contents)
 - drag an drop with confirmation dialog
 
@@ -77,7 +77,7 @@ A identical project was setup for each web solution, this includes:
 + boilerplate free (besides setup which is automated by Vite)
 + gets used a lot (including in enterprises)
 + big ecosystem
-+ compile time optimisations
++ compile time optimizations
 + very similar to vue 
 + style is automatically scoped (this can be easily bypassed with the :global selector when necessary)
 + backed by Vercel
@@ -136,7 +136,7 @@ A identical project was setup for each web solution, this includes:
 
 ### Hilla
 
-This takes all notes of React and/or Lit as it gets used in combination with one of these two. *(React usage is reccomended)*
+This takes all notes of React and/or Lit as it gets used in combination with one of these two. *(React usage is recommended)*
 
 ```diff
 + makes frontend <-> backend communication very easy
