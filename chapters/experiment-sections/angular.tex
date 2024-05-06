@@ -16,27 +16,33 @@
 % - templating language is less powerful compared to the other solutions (eg argument passing to slots)
 % - complex syntax
 % - i18n can not change in development mode (a separate build is required for each language)
-% - uses different terminologies than all other frameworks
 % - lots of boilerplate (mostly for legacy purposes)
 % - doesn't always use the type systems (eg for an @input you have to explicitly set required: true, instead of deriving this form the typescript type)
-
-
 
 \section{Angular}
 \label{sec:angular}
 
 \subsection{Overview}
 \label{subsec:angular:overview}
-\itodo{write this}
+
+Angular is a \gls{framework} created by Google. By default it has many features out of the box, like routing, state management, dependency injection, custom \acrshort{http} client, \dots\ - which makes a standardized approach for developing applications. To manage data Angular uses two way bindings and the \acrshort{dom}.
+
+\itodo{write over updating prrocess}
 
 \subsection{Strengths}
 \label{subsec:angular:strengths}
 \begin{itemize}
-    \item strength! \todo{write strengths}
+    \item mediocre documentation
+    \item standard typescript and \acrshort{html} files (custom templating language in \acrshort{html})
+    \item \acrshort{css} scope can be chosen with ease
+    \item big Community \textit{(over 40,000 members on Discord)}
+    \item \acrshort{cli} application to help generate boilerplate
+    \item standardized approach/libraries
+    \item uses \acrshort{css} selectors instead of components, providing more flexibility to the developer.
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:angular:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{write weaknesses}
+    \item Uses different terminology than all other frameworks which makes switching more difficult.
 \end{itemize}
