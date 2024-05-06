@@ -31,7 +31,7 @@ A identical project was setup for each web solution, this includes:
 ```diff
 + stable update system
 + gets used a lot (including in enterprises)
-+ boilerplate free (besides setup which is automated by Vite)
++ not much boilerplate
 + extremely big ecosystem
 + great documentation
 + performant in combination with the million library
@@ -74,6 +74,7 @@ A identical project was setup for each web solution, this includes:
 + client side with officially supported server side SvelteKit solution
 + code is confined in one file (custom file type) and is easily readable and understandable without prior knowledge
 + great documentation with interactive walkthrough
++ boilerplate free (besides setup which is automated by Vite)
 + gets used a lot (including in enterprises)
 + big ecosystem
 + compile time optimisations

@@ -1,13 +1,13 @@
-% zelfde notes als React
-% geen web framework, focused zich op de comunicatie tussen de backen den frontend, java types, validatie en endpoints worden automatish omgezet naar typescript
-% generics op custom recrods werken niet
-% method overloading neem een random overload (wat dus verwarrend is)
-% backend volgt geen REST specification (altijd POST request, dus geen caching optimalisaties)
-% its this or nothing,  forceert je om spring boot te gebruiken in combinatie met REact of Lit
-% handled essentieel alle API communicatie (auth, csrf, endpoints, types) wat relatief makkelijk zelf te maken is
-% heel expliciet zijn op je types (je bloat je code met @Notnull decorators)
-% meegeleverde Vaadin componenten zijn gemakkelijk in gebruik
-% backed by vaadin
+% zelfde notes als react of lit
+
+% + makes frontend <-> backend communication very easy
+% + type safety
+% + automatic CSRF protection
+% + provided Vaadin components are easy to use
+% ~ automatically converts types (was unable to convert custom records with generics & method overloading seemingly takes a random overloaded method, which can case confusion)
+% - doesn't follow REST specification (so it is always a POST request which hinders caching optimizations)
+% - requires usage of Spring Boot with React or Lit
+% - Java types have to be extremely explicit with custom @Notnull decorator
 
 \section{Hilla}
 \label{sec:hilla}

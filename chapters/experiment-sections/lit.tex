@@ -1,16 +1,16 @@
-% no vdom, browser level web components
-% niet veel boilerplate
-% plain html, js/ts
-% client side (experimental ssr wip)
-% laat je toe om voor eender welke web framework componenten te schrijven
-% matig ecosysteem
-% matige documentatie 
-% w3c compliant
-% IDE integratie (INTELJI) is suboptimaal
-% calls zijn by refference als default, waardoor je je method context (this) moet binden of een nieuwe closure meegeven. Dit kan verwarrend zijn.
-% gebruikt de shadow dom
-% door de async rendering kan het onverwacht gedrag geven (https://github.com/lit/lit/issues/4618)
-% backed by google
+% + no VDOM
+% + browser native api's (web components)
+% + not much boilerplate
+% + plain html, js/ts
+% + create components for-/compatible with- any web framework
+% + W3C compliant
+% + Backed by Google
+% ~ client side (SSR is experimental)
+% ~ mediocre ecosystem
+% ~ mediocre documentation (as result: <https://github.com/lit/lit/issues/4617>, and <https://github.com/lit/lit/issues/4618>)
+% ~ uses the shadow DOM
+% - IDE integration is suboptimal compared to other frameworks
+% - calls are a reference by default, which binds another `this` to the call. This can cause confusing behavior.
 
 \section{Lit}
 \label{sec:lit}

@@ -49,7 +49,6 @@ Although the \acrshort{vdom} incurs more overhead as the browser has to keep the
     caption=\acrshort{html} equivalent of \autoref{lst:vdom_representation}
 ]{code/vdom.html}
 
-\newpage
 \subsection{Reconciliation Algorithm}
 \label{subsec:react:reconciliation_algorithm}
 
@@ -139,15 +138,16 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \item big community \textit{(over 230,000 members on Discord)}
     \item lots of enterprise usage, even in the Fortune 500 companies \cite{buildin:react_companies}
     \item not that performant compared to native JS, but a one-click addon called \textsl{Million} \cite{million} makes this problem go away
-    \item professional support is widely available on top of the community support
+    \item professional support is widely available through 3rd parties
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:react:weaknesses}
 \begin{itemize}
     \item \acrshort{vdom} overhead
+    \item Component tries can cause unexpected behavior
     \item client-side rendered \textit{(solution: Next.js or canary \say{use server} directive \cite{react:use_server_directive})}
-    \item State management can be complex. Even if you are familiar with bigger components, managing their state can become difficult quickly.
+    \item State management can easily become complex in bigger components.
     \item basic dependencies \textit{(React, Redux, \acrshort{i18n})} that get sent to the client are about ~12MB which is relatively big and can slow down the initial load
 \end{itemize}
 
@@ -175,17 +175,17 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \centering
     \begin{tabular}{|l|l|}
         \hline
-        \textbf{Method}                   & \textbf{Score}                                     \\
+        \textbf{Method}                          & \textbf{Score}                                     \\
         \hline
-        Community                         & 1 \textit{(\autoref{tab:metrics:community})}       \\ \hline
-        Professional Support              & 1                                                  \\ \hline
-        Documentation (interactive?)      & 0.5                                                \\ \hline
-        Ecosystem                         & 0.9 \textit{(\autoref{tab:metrics:react:ratings})} \\ \hline
-        Usage by other enterprises        & 1                                                  \\ \hline
-        \textit{(added)} Size of solution & 0.5                                                \\ \hline
-        Relative performance of solution  & -                                                  \\ \hline
-        Complexity                        & 0.5 \textit{(\autoref{tab:react:complexity})}      \\ \hline
-        Server Side Rendered (SSR)        & 0.5                                                \\ \hline
+        Community                                & 1 \textit{(\autoref{tab:metrics:community})}       \\ \hline
+        Professional Support                     & 1                                                  \\ \hline
+        Documentation (interactive walkthrough?) & 0.5                                                \\ \hline
+        Ecosystem                                & 0.9 \textit{(\autoref{tab:metrics:react:ratings})} \\ \hline
+        Usage by other enterprises               & 1                                                  \\ \hline
+        \textit{(added)} Size of solution        & 0.5                                                \\ \hline
+        Relative performance of solution         & -                                                  \\ \hline
+        Complexity                               & 0.5 \textit{(\autoref{tab:react:complexity})}      \\ \hline
+        Server Side Rendered (SSR)               & 0.5                                                \\ \hline
     \end{tabular}
     \caption{React general scores}
     \label{tab:react:scores}

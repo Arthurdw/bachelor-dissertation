@@ -1,24 +1,26 @@
-% gebruikt DOM 
-% veel boilerplate
-% veel built in/gestandariseerde dependencies
-% andere terminologie
-% client side by default heeft SSR functies ingebouwd
-% development mode laat je niet toe om van taal te veranderen/i18n te testen omdat hiervoor een apparte build nodig is
-% groot ecosysteem
-% complexere syntax
-% goede docs
-% standaard typescript en html bestanden, maar eigen templating language in de html
-% je kan je scope voor de style zelf kiezen
-% backged by google
-% veel enterprise gebruik
-% templating is minder krachtig dan bv vue, ook is het complexer om simpele dingen te doen (eg slot)
-% CLI application to generate basic boilerplate
-% je mag geen dingen vergeten voor legacy redenen (eg standalone op true zetten)
-% onderdelen voelen te expliciet aan (eg @input required: type) ipv van het type af te leiden
-% update process is stabiel (wordt getest op meer dan 100k componenten @ google)
-% ingebouwde routing framework is stabiel
-% ipv componenten te gebruiken bind je op css selectoren, wat je dus een veel krachtigere toegang geeft
-% state management is complex (twee manieren van state beheren, adhv signals en zonder, maar je kan alleen maar singnals meegeven als het dat verwacht)
+% + no VDOM overhead
+% + lots of built in/standard dependencies
+% + client side, but has SSR baked in
+% + big ecosystem
+% + dependency injection
+% + great documentation
+% + standard typescript and html files (custom templating language in the html)
+% + scope of css is easily determinable
+% + backed by Google
+% + lots of usage (especially in enterprises)
+% + CLI application to generate the basic boilerplate
+% + stable updating process
+% + build in routing framework is stable and powerful
+% + instead of components css selectors are used, this gives you much more power to create advanced component behavior
+% - state management is complex (eg, to ways of managing state, with and without signals; but signals can only expect signals as argument)
+% - templating language is less powerful compared to the other solutions (eg argument passing to slots)
+% - complex syntax
+% - i18n can not change in development mode (a separate build is required for each language)
+% - uses different terminologies than all other frameworks
+% - lots of boilerplate (mostly for legacy purposes)
+% - doesn't always use the type systems (eg for an @input you have to explicitly set required: true, instead of deriving this form the typescript type)
+
+
 
 \section{Angular}
 \label{sec:angular}
