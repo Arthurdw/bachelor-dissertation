@@ -9,7 +9,10 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{url}
+\usepackage{pgffor}
+\usepackage{etoolbox}
 
+\newbool{final}
 \input{config}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,8 +201,6 @@
 }
 
 \pagestyle{howest-section}
-
-\usepackage{etoolbox}
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{howest-chapter}}{}{}
 
 \usepackage{titlesec}
@@ -219,8 +220,10 @@
 \pagenumbering{Roman}
 
 % Remove this for the final version
-\todototoc
-\listoftodos
+\ifbool{final}{}{
+    \todototoc
+    \listoftodos
+}
 
 \include{titlepage}
 \emptypage
@@ -241,9 +244,13 @@
 \pagenumbering{arabic}
 \pagestyle{howest-section}
 
-\input{chapters/introduction}
-\input{chapters/experiment}
-\input{chapters/conclusion}
+\foreach \iterchapter in \chapters {
+    \input{chapters/\iterchapter}
+}
+
+% \input{chapters/introduction}
+% \input{chapters/experiment}
+% \input{chapters/conclusion}
 
 \printglossary[type=\acronymtype]
 \printglossary
