@@ -36,5 +36,47 @@
         "Vaadin",
         "vercel",
         "zustand"
-    ]
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex, makeglossaries, biblatex, pdflatex (2x)",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "biblatex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biblatex",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+    ],
 }
