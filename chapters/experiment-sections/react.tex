@@ -76,7 +76,7 @@ By following these practices, developers can ensure efficient state management a
 
 \subsubsection{Sharing State}
 
-In React, there are various methods for sharing state, with one popular approach being to lift the state up \textit{(\autoref{fig:state_lifted})} \cite{react:sharing_state}. This method aligns with the principle of a \say{"\textsl{single source of truth}"} \cite{enwiki:single_source_of_truth}, meaning that while the state isn't confined to just one place, there's a central component responsible for managing it. This eliminates the need for duplicating state across components, thus reducing error-prone practices.
+In React, there are various methods for sharing state, with one popular approach being to lift the state up \textit{(\autoref{fig:state_lifted})} \cite{react:sharing_state}. This method aligns with the principle of a \say{\textsl{single source of truth}} \cite{enwiki:single_source_of_truth}, meaning that while the state isn't confined to just one place, there's a central component responsible for managing it. This eliminates the need for duplicating state across components, thus reducing error-prone practices.
 
 However, this approach has its drawbacks. For nested components, the state must be passed down through each level, leading to code bloat and unnecessary dependencies between components. To address this issue, a context provider can be employed. This provider enables all nested children, regardless of depth, to access and respond to the state without requiring explicit prop drilling or predefined component structures \textit{(\autoref{fig:context_provider})} \cite{react:passing_data_deeply_with_context}.
 
@@ -116,7 +116,7 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \begin{minipage}[t]{0.3\textwidth}
         \centering
         \includesvg[height=14em]{images/experiment/react/multiple_root_providers}
-        \caption{serveral providers provide state to all}
+        \caption{several providers provide state to all}
         \label{fig:multiple_root_providers}
     \end{minipage}
     \hfill

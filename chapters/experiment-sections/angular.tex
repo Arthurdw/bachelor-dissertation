@@ -25,30 +25,77 @@
 \subsection{Overview}
 \label{subsec:angular:overview}
 
-Angular is a \gls{framework} created by Google. By default it has many features out of the box, like routing, state management, dependency injection, custom \acrshort{http} client, \dots\ - this provides a standardized approach to creating applications. To manage data Angular uses two way bindings and the \acrshort{dom}.
+% Angular is a web framework developed by Google. It comes with numerous built-in dependencies, preventing having to reinvent the wheel. Despite being client-side focused, Angular includes Server-Side Rendering (\acrshort{ssr}), offering versatility in deployment.
 
-\itodo{write over updating prrocess}
+% One of Angular's strengths lies in its expansive ecosystem, supported by extensive documentation. Moreover, it leverages standard TypeScript and HTML files, with a custom templating language embedded within HTML.
+
+% Angular's CSS scoping mechanism enables clear determination of styling scope, enhancing maintainability. Its CLI application facilitates boilerplate generation, expediting project setup. Furthermore, Angular's updating process is stable, ensuring well documented transitions and migration guides between major versions. The built-in routing framework is both stable and powerful.
+
+% Unique to Angular is its use of CSS selectors instead of components, providing developers with greater control over component behavior and usage. However, despite these strengths, Angular presents some challenges. State management can be complex, offering two methods (with and without signals), with each one being not directly interoperable with the other.
+
+% Additionally, the templating language in Angular may be less powerful compared to alternative solutions, for example in argument passing to slots/content projection. Which can make things more complex than required, potentially increasing the learning curve for new developers. In terms of \acrfull{i18n}, Angular requires a separate build for each language, limiting flexibility during development.
+
+% Moreover, Angular requires a significant amount of boilerplate, primarily due to legacy considerations. Furthermore, it doesn't consistently utilize type systems, necessitating explicit declarations for certain features like input validation, for example the \say{@Input} decorator requires an explicit \say{required: true} instead of deriving this from the typescript types..
+
+% In conclusion, while Angular offers a robust framework with extensive features and a supportive ecosystem, developers should be mindful of its complexities and limitations, particularly in state management and templating flexibility.
+
+% ---
+
+Angular, developed by Google, stands as a powerful web framework renowned for its versatility and rich ecosystem. This section explores its key features and considerations.
+
+\subsubsection{Angular's Versatility and Strengths}
+
+Angular boasts a plethora of built-in dependencies, streamlining development and eliminating the need to start from scratch. Notably, it offers Server-Side Rendering (\acrshort{ssr}), enhancing deployment flexibility.
+
+\subsubsection{Expansive Ecosystem and Ease of Use}
+
+The framework benefits from extensive documentation, making it accessible to developers of all levels. Leveraging standard TypeScript and HTML files, Angular incorporates a custom templating language within HTML, facilitating development.
+
+\subsubsection{Enhanced Styling and Project Setup}
+
+Angular's CSS scoping mechanism ensures clarity in styling scope, thereby improving code maintainability. Additionally, its CLI application expedites project setup by generating boilerplate code efficiently.
+
+\subsubsection{Stable Updates and Routing Framework}
+
+Angular's updating process is notably stable, accompanied by comprehensive migration guides for seamless transitions between major versions. Moreover, its built-in routing framework offers stability and robustness.
+
+\subsubsection{Unique Features and Challenges}
+
+Angular's use of CSS selectors instead of components provides developers with greater control over component behavior. However, challenges exist, particularly in state management, which offers two methods with limited interoperability.
+
+\subsubsection{Templating Limitations and Internationalization}
+
+While Angular's templating language is powerful, it may lag behind alternative solutions in certain aspects, such as argument passing to slots/content projection, potentially steepening the learning curve for new developers. Additionally, its approach to internationalization necessitates separate builds for each language, hindering development flexibility.
+
+\subsubsection{Boilerplate and Type System Concerns}
+
+Angular requires a significant amount of boilerplate, primarily due to legacy considerations. Moreover, it lacks consistency in utilizing type systems, leading to explicit declarations for certain features like input validation.
+
+\subsubsection{Conclusion}
+
+In summary, Angular emerges as a robust framework with an extensive feature set and supportive ecosystem. However, developers must navigate its complexities and limitations, especially in state management and templating flexibility, to leverage its full potential effectively.
 
 \subsection{Strengths}
 \label{subsec:angular:strengths}
 \begin{itemize}
     \item no \acrshort{vdom} overhead
-    \item mediocre documentation
+    \item great documentation
     \item standard typescript and \acrshort{html} files (custom templating language in \acrshort{html})
     \item \acrshort{css} scope can be chosen with ease
     \item big Community \textit{(over 40,000 members on Discord)}
     \item \acrshort{cli} application to help generate boilerplate
     \item standardized approach/libraries for many features
-    \item uses \acrshort{css} selectors instead of components, providing more flexibility to the developer
+    \item uses \acrshort{css} selectors instead of tags for components, providing more flexibility to the developer component usage
     \item baked in \acrshort{ssr} support
     \item you can easily set the scope for styles
+    \item stable and consistent release process \cite{angular.dev:versioning_and_releases}
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:angular:weaknesses}
 \begin{itemize}
     \item uses different terminology than all other frameworks which makes switching more difficult
-    \item \acrshort{hmr} didn't work great/smoothy
+    \item \acrshort{hmr} doesn't work great/smoothy out of the box
     \item you are unable to change the language for \acrshort{i18n} in development mode as it requires a separate build for each language
     \item state management is complex
     \item two ways of managing state, signals and non signals, which are non interoperable with each other \textit{(you can not directly pass a (non) signal to its counterpart without applying a conversion)}
