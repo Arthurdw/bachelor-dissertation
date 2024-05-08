@@ -4,18 +4,18 @@
 \subsection{Overview}
 \label{subsec:angular:overview}
 
-Angular, created by Google, is a flexible web framework valued for its strength and wide range of tools. This section explores its key features and considerations. Angular includes many pre-built dependencies, making development smoother and saving time on initial setup. A notable feature is its support for \acrfull{ssr} \cite{angulardev:ssr}, which increases deployment options. The framework is thoroughly documented, suitable for developers at any experience level. Angular utilizes standard TypeScript and \acrshort{html} files, effortlessly blending a custom templating language into \acrshort{html} \cite{angulardev:template_syntax}.
+Angular, a web framework developed by Google, is esteemed for its flexibility and extensive toolset. This section delves into its primary features and considerations. With numerous pre-built dependencies, Angular streamlines development and reduces setup time. Notably, it supports \acrfull{ssr} \cite{angulardev:ssr}, expanding deployment possibilities. The framework boasts comprehensive documentation, catering to developers of all skill levels. Leveraging standard TypeScript and \acrshort{html} files, Angular seamlessly integrates a custom templating language into \acrshort{html} \cite{angulardev:template_syntax}.
 
 \subsubsection{Styling and Project Setup}
 
-Angular's CSS scoping mechanism ensures clarity in styling scope, thus enhancing code maintainability \cite{angulardev:styling_components}. Additionally, its CLI application accelerates project setup by efficiently generating boilerplate code \cite{angulardev:cli}.
+Angular's CSS scoping mechanism ensures clarity in styling scope, thus enhancing code maintainability \cite{angulardev:styling_components}. Additionally, its \acrshort{cli} application accelerates project setup by efficiently generating boilerplate code \cite{angulardev:cli}.
 
 \subsubsection{Challenges and Considerations}
 \label{subsec:angular:challenges}
 
-However, Angular faces challenges, particularly in state management. It provides two methods for managing state, through two-way bindings and signals, which can be confusing and are not interoperable \cite{angulardev:managing_dynamic_data, angulardev:signals}.
+Angular faces challenges, particularly in state management. It provides two methods for managing state: through two-way bindings and signals, which can be confusing and are not interoperable \cite{angulardev:managing_dynamic_data, angulardev:signals}.
 
-Angular offers a powerful templating language, but it may fall short in certain areas compared to other options. For instance, passing arguments to slots/content projection can be less intuitive for new developers, potentially increasing the learning curve \cite{angulardev:ng_container}. Moreover, Angular's approach to internationalization requires separate builds for each language, limiting flexibility during development since it lacks built-in support for language switching \cite{angulardev:i18n}.
+While Angular offers a powerful templating language, it may fall short in certain areas compared to other solutions. For instance, passing arguments to slots/content projection can be less intuitive for new developers, potentially increasing the learning curve \cite{angulardev:ng_container}. Moreover, Angular's approach to internationalization requires separate builds for each language, limiting flexibility during development since it lacks built-in support for language switching \cite{angulardev:i18n}.
 
 Angular entails a significant amount of boilerplate, primarily due to legacy considerations \cite{angulardev:directive_composition_api}. Moreover, it lacks consistency in utilizing type systems, necessitating explicit declarations for certain features like input validation \cite{angulardev:inputs, typescript:objects}.
 
@@ -56,3 +56,49 @@ Angular employs \acrshort{css} selectors instead of tags, granting developers mo
     \item templating language is less powerful compared to other solutions \textit{(\autoref{subsec:angular:challenges})}
     \item requires explicit declarations that could be derived from TypeScript
 \end{itemize}
+
+
+\subsection{Scores}
+\label{subsec:angular:scores}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}            & \textbf{Score}                                  \\
+        \hline
+        Easiness/speed to learn    & 0.5                                             \\ \hline
+        State management           & 0                                               \\ \hline
+        Boilerplate                & 0 \textit{(components: 0, state management: 0)} \\ \hline
+        \acrshort{api} integration & 0.5 \textit{(has custom HTTP handler)}          \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:angular:complexity}
+\end{table}
+
+\itodo{anglar: relative performance}
+\itodo{anglar: calculate community}
+\itodo{anglar: calculate ecosystem}
+\itodo{anglar: calculate added size}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                   \\
+            \hline
+            Community                                & 0.6 \textit{(\autoref{tab:metrics:community})}                                                   \\ \hline
+            Professional Support                     & 1                                                                                                \\ \hline
+            Documentation (interactive walkthrough?) & 1                                                                                                \\ \hline
+            Ecosystem                                & - \textit{(quality: -, size: -; \autoref{tab:metrics:react:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 1                                                                                                \\ \hline
+            \textit{(added)} Size of solution        & -                                                                                                \\ \hline
+            Relative performance of solution         & -                                                                                                \\ \hline
+            Complexity                               & 0.25 \textit{(\autoref{tab:angular:complexity})}                                                 \\ \hline
+            Server Side Rendered (SSR)               & 1                                                                                                \\ \hline
+        \end{tabular}
+    }
+    \caption{React general scores}
+    \label{tab:react:scores}
+\end{table}

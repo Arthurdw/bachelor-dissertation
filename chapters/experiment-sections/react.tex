@@ -169,24 +169,27 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \label{tab:react:complexity}
 \end{table}
 
-\itodo{relative performance}
+\itodo{react: relative performance}
+\itodo{react: calculate added size}
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|l|}
-        \hline
-        \textbf{Method}                          & \textbf{Score}                                     \\
-        \hline
-        Community                                & 1 \textit{(\autoref{tab:metrics:community})}       \\ \hline
-        Professional Support                     & 1                                                  \\ \hline
-        Documentation (interactive walkthrough?) & 0.5                                                \\ \hline
-        Ecosystem                                & 0.9 \textit{(\autoref{tab:metrics:react:ratings})} \\ \hline
-        Usage by other enterprises               & 1                                                  \\ \hline
-        \textit{(added)} Size of solution        & 0.5                                                \\ \hline
-        Relative performance of solution         & -                                                  \\ \hline
-        Complexity                               & 0.5 \textit{(\autoref{tab:react:complexity})}      \\ \hline
-        Server Side Rendered (SSR)               & 0.5                                                \\ \hline
-    \end{tabular}
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                         \\
+            \hline
+            Community                                & 1 \textit{(\autoref{tab:metrics:community})}                                                           \\ \hline
+            Professional Support                     & 1                                                                                                      \\ \hline
+            Documentation (interactive walkthrough?) & 0.5                                                                                                    \\ \hline
+            Ecosystem                                & 0.94 \textit{(quality: 0.88, size: 1; \autoref{tab:metrics:react:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 1                                                                                                      \\ \hline
+            \textit{(added)} Size of solution        & -                                                                                                      \\ \hline
+            Relative performance of solution         & -                                                                                                      \\ \hline
+            Complexity                               & 0.5 \textit{(\autoref{tab:react:complexity})}                                                          \\ \hline
+            Server Side Rendered (SSR)               & 0.5                                                                                                    \\ \hline
+        \end{tabular}
+    }
     \caption{React general scores}
     \label{tab:react:scores}
 \end{table}
