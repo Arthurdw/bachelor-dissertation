@@ -3,7 +3,6 @@
 % + not much boilerplate
 % + plain html, js/ts
 % + create components for-/compatible with- any web framework
-% + W3C compliant
 % + Backed by Google
 % ~ client side (SSR is experimental)
 % ~ mediocre ecosystem
@@ -17,7 +16,21 @@
 
 \subsection{Overview}
 \label{subsec:lit:overview}
-\itodo{write this}
+
+Lit is a library developed by Google on the browser native web components. This makes it a lightweight solution without \acrshort{vdom} that can be used with any web solution, even with plain \acrshort{html}. It also does not require much boilerplate and uses plain \acrshort{html} in combination with \acrshort{js} or \acrshort{ts}. Out of the box it provides reactive state, scoped styles and a declarative templating system. \cite{lit:intro}
+
+It's main goal is to develop sharable components or design systems for its cross solution usage ability. It can also be used to progressively enhance basic \acrshort{html} sites.
+
+\subsubsection{Challenges and considerations}
+
+Due to web components not being as popular as other solutions, lit does not enjoy a big ecosystem. The documentation is also mediocre and has room for improvement \cite{github:issue_lit}. On top of that does it not currently have the ability to do \acrshort{ssr}, and makes use of the Shadow Dom \textit{(see \ref{subsec:lit:shadow_dom})}. \acrshort{ide} integration is also suboptimal providing inaccurate linting and suggestions. \cite{lit:ssr, designsystemcentral:web_components, mitosis:overview}
+
+\subsection{Shadow DOM}
+\label{subsec:lit:shadow_dom}
+
+\itodo{READ article https://www.matuzo.at/blog/2023/pros-and-cons-of-shadow-dom}
+
+bla bla \cite{designsystemcentral:web_components}
 
 \subsection{Strengths}
 \label{subsec:lit:strengths}
@@ -30,3 +43,50 @@
 \begin{itemize}
     \item weakness! :( \todo{write weaknesses}
 \end{itemize}
+
+
+\subsection{Scores}
+\label{subsec:lit:scores}
+
+\itodo{lit: fill in all}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}            & \textbf{Score}                                  \\
+        \hline
+        Easiness/speed to learn    & 0.5                                             \\ \hline
+        State management           & 0                                               \\ \hline
+        Boilerplate                & 0 \textit{(components: 0, state management: 0)} \\ \hline
+        \acrshort{api} integration & 0.5 \textit{(has custom HTTP handler)}          \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:lit:complexity}
+\end{table}
+
+\itodo{lit: do all}
+\itodo{lit: relative performance}
+\itodo{lit: calculate added size}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                         \\
+            \hline
+            Community                                & 0.6 \textit{(\autoref{tab:metrics:community})}                                                         \\ \hline
+            Professional Support                     & 1                                                                                                      \\ \hline
+            Documentation (interactive walkthrough?) & 1                                                                                                      \\ \hline
+            Ecosystem                                & 0.81 \textit{(quality: 0.82, size: 0.8; \autoref{tab:metrics:lit:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 1                                                                                                      \\ \hline
+            \textit{(added)} Size of solution        & -                                                                                                      \\ \hline
+            Relative performance of solution         & -                                                                                                      \\ \hline
+            Complexity                               & 0.25 \textit{(\autoref{tab:lit:complexity})}                                                           \\ \hline
+            Server Side Rendered (SSR)               & 1                                                                                                      \\ \hline
+        \end{tabular}
+    }
+    \caption{lit general scores}
+    \label{tab:lit:scores}
+\end{table}
