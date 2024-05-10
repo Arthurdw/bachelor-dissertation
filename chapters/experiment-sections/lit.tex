@@ -1,71 +1,64 @@
-% + no VDOM
-% + browser native api's (web components)
-% + not much boilerplate
-% + plain html, js/ts
-% + create components for-/compatible with- any web framework
-% + Backed by Google
-% ~ client side (SSR is experimental)
-% ~ mediocre ecosystem
-% ~ mediocre documentation (as result: <https://github.com/lit/lit/issues/4617>, and <https://github.com/lit/lit/issues/4618>)
-% ~ uses the shadow DOM
-% - IDE integration is suboptimal compared to other frameworks
-% - calls are a reference by default, which binds another `this` to the call. This can cause confusing behavior.
-
 \section{Lit}
 \label{sec:lit}
 
 \subsection{Overview}
 \label{subsec:lit:overview}
 
-Lit is a library developed by Google on the browser native web components. This makes it a lightweight solution without \acrshort{vdom} that can be used with any web solution, even with plain \acrshort{html}. It also does not require much boilerplate and uses plain \acrshort{html} in combination with \acrshort{js} or \acrshort{ts}. Out of the box it provides reactive state, scoped styles and a declarative templating system. \cite{lit:intro}
+Lit, developed by Google, is a library for browser native web components, emphasizing simplicity and versatility. Unlike libraries employing \acrshort{vdom}, Lit is lightweight and adaptable, compatible with any web solution, including plain \acrshort{html}. It minimizes boilerplate and utilizes straightforward \acrshort{html} alongside \acrshort{js} or \acrshort{ts}. Key features include reactive state management, scoped styles, and a declarative templating system \cite{lit:intro}.
 
-It's main goal is to develop sharable components or design systems for its cross solution usage ability. It can also be used to progressively enhance basic \acrshort{html} sites.
+Its primary objective is to facilitate the creation of shareable components and design systems for seamless integration across different solutions. Additionally, Lit can enhance basic \acrshort{html} sites progressively.
 
 \subsubsection{Challenges and considerations}
 
-Due to web components not being as popular as other solutions, lit does not enjoy a big ecosystem. The documentation is also mediocre and has room for improvement \cite{github:issue_lit}. On top of that does it not currently have the ability to do \acrshort{ssr}, and makes use of the Shadow Dom \textit{(see \ref{subsec:lit:shadow_dom})}. \acrshort{ide} integration is also suboptimal providing inaccurate linting and suggestions. \cite{lit:ssr, designsystemcentral:web_components, mitosis:overview}
+Web components, unlike other solutions, aren't widely adopted, leading to a smaller ecosystem for Lit. The documentation also needs improvement \cite{github:issue_lit}. Additionally, Lit currently lacks \acrshort{ssr} capability and relies on Shadow \acrshort{dom} \textit{(see \ref{subsec:lit:shadow_dom})}. Integration with \acrshort{ide}s is subpar, offering inaccurate linting and suggestions \cite{lit:ssr, designsystemcentral:web_components, mitosis:overview}.
 
 \subsection{Shadow DOM}
 \label{subsec:lit:shadow_dom}
 
-\itodo{READ article https://www.matuzo.at/blog/2023/pros-and-cons-of-shadow-dom}
-
-bla bla \cite{designsystemcentral:web_components}
+The Shadow \acrshort{dom} is a web standard that creates encapsulated components in web applications. It hides \acrshort{html}, \acrshort{css}, and \acrlong{js} within a scoped boundary. By attaching a separate \acrshort{dom} tree to an element, it shields internal structure and styles, preventing conflicts and unintended manipulation from external sources. This isolation fosters reusable, modular components, enhancing maintainability and code reusability in web development. \cite{mdn:shadow_dom} However, challenges exist with assistive technologies, developer experience, and \acrshort{seo} integration. \cite{designsystemcentral:web_components, manuel:shadow_dom}
 
 \subsection{Strengths}
 \label{subsec:lit:strengths}
 \begin{itemize}
-    \item strength! \todo{write strengths}
+    \item no \acrshort{vdom} overhead
+    \item uses browser native \acrshort{api}'s \textit{(web components)}
+    \item not much boilerplate
+    \item uses plain \acrshort{html}, \acrshort{js}/\acrshort{ts}
+    \item compatible with any web solution
+    \item backed by Google
+    \item Shadow \acrshort{dom} ensures that components behave consistent
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:lit:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{write weaknesses}
+    \item \acrshort{ssr} is experimental
+    \item mediocre ecosystem
+    \item mediocre documentation
+    \item Shadow \acrshort{dom} drawbacks can interfere with development simplicity
+    \item \acrshort{ide} integration lacks compared to other solutions
+    \item calls are by reference which changes the \acrshort{js} \texttt{this} context
 \end{itemize}
 
 
 \subsection{Scores}
 \label{subsec:lit:scores}
 
-\itodo{lit: fill in all}
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|l|}
         \hline
-        \textbf{Method}            & \textbf{Score}                                  \\
+        \textbf{Method}            & \textbf{Score}                                       \\
         \hline
-        Easiness/speed to learn    & 0.5                                             \\ \hline
-        State management           & 0                                               \\ \hline
-        Boilerplate                & 0 \textit{(components: 0, state management: 0)} \\ \hline
-        \acrshort{api} integration & 0.5 \textit{(has custom HTTP handler)}          \\ \hline
+        Easiness/speed to learn    & 0.5                                                  \\ \hline
+        State management           & 0.5                                                  \\ \hline
+        Boilerplate                & 0.75 \textit{(components: 0.5, state management: 1)} \\ \hline
+        \acrshort{api} integration & 0                                                    \\ \hline
     \end{tabular}
     \caption{complexity}
     \label{tab:lit:complexity}
 \end{table}
 
-\itodo{lit: do all}
 \itodo{lit: relative performance}
 \itodo{lit: calculate added size}
 
@@ -74,17 +67,17 @@ bla bla \cite{designsystemcentral:web_components}
     \resizebox{\columnwidth}{!}{
         \begin{tabular}{|l|l|}
             \hline
-            \textbf{Method}                          & \textbf{Score}                                                                                         \\
+            \textbf{Method}                          & \textbf{Score}                                                                                          \\
             \hline
-            Community                                & 0.6 \textit{(\autoref{tab:metrics:community})}                                                         \\ \hline
-            Professional Support                     & 1                                                                                                      \\ \hline
-            Documentation (interactive walkthrough?) & 1                                                                                                      \\ \hline
-            Ecosystem                                & 0.81 \textit{(quality: 0.82, size: 0.8; \autoref{tab:metrics:lit:ratings} \autoref{tab:metrics:size})} \\ \hline
-            Usage by other enterprises               & 1                                                                                                      \\ \hline
-            \textit{(added)} Size of solution        & -                                                                                                      \\ \hline
-            Relative performance of solution         & -                                                                                                      \\ \hline
-            Complexity                               & 0.25 \textit{(\autoref{tab:lit:complexity})}                                                           \\ \hline
-            Server Side Rendered (SSR)               & 1                                                                                                      \\ \hline
+            Community                                & 0.3 \textit{(\autoref{tab:metrics:community})}                                                          \\ \hline
+            Professional Support                     & 0                                                                                                       \\ \hline
+            Documentation (interactive walkthrough?) & 1                                                                                                       \\ \hline
+            Ecosystem                                & 0.465 \textit{(quality: 0.63, size: 0.3; \autoref{tab:metrics:lit:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 0.5                                                                                                     \\ \hline
+            \textit{(added)} Size of solution        & -                                                                                                       \\ \hline
+            Relative performance of solution         & -                                                                                                       \\ \hline
+            Complexity                               & 0.44 \textit{(\autoref{tab:lit:complexity})}                                                            \\ \hline
+            Server Side Rendered (SSR)               & 0.5                                                                                                     \\ \hline
         \end{tabular}
     }
     \caption{lit general scores}

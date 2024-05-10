@@ -3,7 +3,10 @@
 Welcome to my bachelor's dissertation about web frameworks. 
 
 // TODO: write this readme properly
-// TODO: add built file
+
+## Dependencies
+
+Make sure that latex and biber are installed.
 
 ## For students
 
