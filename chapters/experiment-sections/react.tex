@@ -52,7 +52,7 @@ Although the \acrshort{vdom} incurs more overhead as the browser has to keep the
 \subsection{Reconciliation Algorithm}
 \label{subsec:react:reconciliation_algorithm}
 
-There are generic solutions to the algorithmic problem of diffing and transforming one tree into another. However, the existing algorithms are expensive at $O(n^3)$ \cite{bille2005survey}. Because this is too expensive for a web framework, the react reconciler implements a $O(n)$ algorithm based on two assumptions \cite{react:reconciliation}.
+There are generic solutions to the algorithmic problem of diffing and transforming one tree into another. However, the existing algorithms are expensive at $O(n^3)$ \cite{bille2005survey}. Because this is too expensive for a web \gls{framework}, the react reconciler implements a $O(n)$ algorithm based on two assumptions \cite{react:reconciliation}.
 
 \begin{enumerate}
     \item \say{Two elements of different types will produce different tries.} which is why if the type is different the tear will be torn down.
