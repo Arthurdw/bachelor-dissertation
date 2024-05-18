@@ -1,43 +1,76 @@
-% + no VDOM overhead
-% + client side with officially supported server side SvelteKit solution
-% + code is confined in one file (custom file type) and is easily readable and understandable without prior knowledge
-% + great documentation with interactive walkthrough
-% + gets used a lot (including in enterprises)
-% + big ecosystem
-% + compile time optimizations
-% + very similar to vue 
-% + style is automatically scoped (this can be easily bypassed with the :global selector when necessary)
-% + backed by Vercel
-% + most loved/admired js framework according to the stack overflow survey (this can indicate how the DX feels)
-% + performant out of the box
-% + warns for accessibility (if you don't want this you can disable them, but on by default)
-% ~ anti boilerplate (this causes some troubles with ease of state management, but this is solved in svelte 5 by runes)
-% - didn't feel mature enough for usage without Svelte Kit 
-
 \section{Svelte}
 \label{sec:svelte}
 
 \subsection{Overview}
 \label{subsec:svelte:overview}
 
-Svelte, created by Rich Harris and maintained by the open source community with support from Vercel \cite{vercel:welcomes_rich}, distinguishes itself by being compiled, fast, and quick to write, eliminating the need for boilerplate code. It confines its components within a custom file type that is easily readable and understandable without requiring prior knowledge. This file type is then compiled into \acrshort{js}, \acrshort{html}, and \acrshort{css}, ensuring efficient and optimized performance.
+Svelte, created by Rich Harris and maintained by the open-source community with support from Vercel \cite{vercel:welcomes_rich}, stands out for its compiled approach, speed, and simplicity, removing the need for boilerplate code. This framework has seen significant adoption, including in enterprise settings, and has developed a large and vibrant ecosystem.
 
-Unlike many other frameworks, Svelte does not use the \acrshort{vdom}, avoiding the associated downsides. It boasts a significant adoption rate, including usage in enterprise environments, and has developed a large and vibrant ecosystem. Svelte automatically scopes styles, simplifying the management of component-specific styles and reducing the likelihood of style conflicts.
+Components in Svelte are contained within a custom file type that is both readable and accessible, even for beginners. This file type is compiled into \acrshort{js}, \acrshort{html}, and \acrshort{css}, ensuring efficient and optimized performance. Unlike many other frameworks, Svelte does not use the \acrshort{vdom}, thereby avoiding its associated drawbacks. Additionally, Svelte automatically scopes styles, simplifying the management of component-specific styles and reducing the risk of style conflicts.
 
-Svelte's popularity is reflected in its acclaim, having been voted the most loved and admired \acrshort{js} framework in the Stack Overflow survey \cite{stackoverflow:survey_2023}. In addition to its technical advantages, Svelte provides an in-depth interactive walkthrough and excellent documentation, making it accessible for developers of all skill levels and facilitating a smoother learning curve.
+Svelte's popularity is reflected in its acclaim, having been voted the most loved and admired \acrshort{js} framework in the Stack Overflow survey \cite{stackoverflow:survey_2023}. Besides its technical strengths, Svelte offers an in-depth interactive walkthrough and excellent documentation, making it accessible to developers of all skill levels and easing the learning curve. Moreover, Svelte includes an SSR extension that offers numerous out-of-the-box features for full-stack development and emphasizes accessibility by providing linter warnings.
 
 \subsubsection{Challenges and Considerations}
-\label{subsec:hilla:challenges}
-\itodo{write this}
+\label{subsec:svelte:challenges}
+
+Due to its anti-boilerplate philosophy, Svelte presents some challenges when writing advanced state manipulation logic. However, this issue is addressed in Svelte 5 with the introduction of Runes \textit{(Svelte 5 is, at the time of writing, not yet released nor does it have a planned release date)}. Using Svelte without its supported \acrshort{ssr} extension, called SvelteKit, can feel immature.
 
 \subsection{Strengths}
 \label{subsec:svelte:strengths}
 \begin{itemize}
-    \item strength! \todo{write strengths}
+    \item officially supported \acrshort{ssr} solution \textit{(SvelteKit)}
+    \item custom file type which is easily readable and understandable
+    \item great documentation with interactive walkthrough
+    \item lots of usage including in enterprises
+    \item big ecosystem
+    \item compile time optimizations
+    \item style is automatically scoped and can be bypassed using the \say{:global} selector
+    \item backed by Vercel
+    \item most loved/admired \acrshort{js} \gls{framework} according to the Stack Overflow survey \cite{stackoverflow:survey_2023}
+    \item emphasizes accessibility using linter warnings
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:svelte:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{write weaknesses}
+    \item anti boilerplate mindset can make state management more complex than needed \textit{(resolved in Svelte 5)}
+    \item usage without SvelteKit doesn't feel mature
 \end{itemize}
+
+\subsection{Scores}
+\label{subsec:svelte:scores}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}            & \textbf{Score}                                    \\
+        \hline
+        Easiness/speed to learn    & 1                                                 \\ \hline
+        State management           & 0.5                                               \\ \hline
+        Boilerplate                & 1 \textit{(components: 1, state management: 1)}   \\ \hline
+        \acrshort{api} integration & 0 \textit{(default browser fetch \acrshort{api})} \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:svelte:complexity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                             \\
+            \hline
+            Community                                & 0.7 \textit{(\autoref{tab:metrics:community})}                                                             \\ \hline
+            Professional Support                     & 1                                                                                                          \\ \hline
+            Documentation (interactive walkthrough?) & 1                                                                                                          \\ \hline
+            Ecosystem                                & 0.565 \textit{(quality: 0.83, size: 0.3; \autoref{tab:metrics:svelte:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 1                                                                                                          \\ \hline
+            Complexity                               & 0.625 \textit{(\autoref{tab:svelte:complexity})}                                                           \\ \hline
+            Server Side Rendered (SSR)               & 1                                                                                                          \\ \hline
+        \end{tabular}
+    }
+    \caption{Svelte general scores}
+    \label{tab:svelte:scores}
+\end{table}
