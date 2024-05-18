@@ -1,29 +1,77 @@
-% same notes as react of lit
-
-% + makes frontend <-> backend communication very easy
-% + type safety
-% + automatic CSRF protection
-% + provided Vaadin components are easy to use
-% ~ automatically converts types (was unable to convert custom records with generics & method overloading seemingly takes a random overloaded method, which can case confusion)
-% - doesn't follow REST specification (so it is always a POST request which hinders caching optimizations)
-% - requires usage of Spring Boot with React or Lit
-% - Java types have to be extremely explicit with custom @Notnull decorator
-
 \section{Hilla}
 \label{sec:hilla}
 
 \subsection{Overview}
 \label{subsec:hilla:overview}
-\itodo{write this}
+
+Hilla, created by Vaadin, is a framework that builds on top of other \acrshort{js} libraries, primarily focusing on the communication between the backend and frontend. This framework generates endpoints and types from the backend, which can be easily used within the frontend. The supported backend is in Java with Spring Boot, and the supported frontends are Lit \textit{(\ref{sec:lit})} \cite{hilla:lit} or React \textit{(\ref{sec:react})} \cite{hilla:react}. Hilla aims to streamline the development process by automatically handling much of the boilerplate code associated with connecting frontend components to backend services. This automation enables developers to focus on implementing business logic rather than dealing with the intricacies of communication between the two layers. By leveraging the robustness of Spring Boot for backend operations and the flexibility of modern frontend frameworks like Lit and React, Hilla provides a cohesive development environment that promotes productivity and consistency. However, the choice of technologies and architectural decisions inherent to Hilla also introduce certain challenges that need to be carefully considered, as discussed in the following section.
+
+\subsubsection{Challenges and Considerations}
+\label{subsec:hilla:challenges}
+
+The integration of our system poses several notable challenges and considerations that must be carefully addressed. One significant issue is the reliance on \acrshort{rpc} calls rather than \acrshort{rest}. This architectural choice necessitates the exclusive use of \textsc{post} requests, which inherently limits the potential for caching optimizations. As a result, the system may experience inefficiencies in data retrieval and increased server load due to the inability to leverage more effective caching mechanisms typically available with other HTTP methods.
+
+Another considerable challenge is the technological stack constraint, as the system is tightly coupled with Java Spring Boot for the backend and React or Lit for the frontend. This lock-in restricts flexibility in choosing alternative technologies and may hinder the adoption of more suitable or emerging frameworks that could better meet evolving project requirements.
+
+Additionally, the system does not support the conversion of record generics, which limits the versatility and robustness of data handling and manipulation. This limitation can lead to increased complexity in the codebase and potential difficulties in maintaining and extending the system.
+
+Method overloading for endpoints presents another area of difficulty. The system struggles with managing multiple methods that share the same name but differ in parameters, which can lead to ambiguous endpoint definitions and increased potential for errors. This issue complicates the API design and can result in less intuitive and harder-to-maintain code.
+
+Furthermore, Java object types within the system are prone to bloat due to the custom Hilla \say{@Notnull} decorator. This decorator, while intended to ensure non-null constraints, adds additional overhead and complexity to the object types. The increased verbosity and clutter in the code can detract from readability and maintainability, making it more challenging for developers to navigate and understand the system.
+
 
 \subsection{Strengths}
 \label{subsec:hilla:strengths}
 \begin{itemize}
-    \item strength! \todo{write strengths}
+    \item only define the types on the backend and automatically synchronize them to the frontend
+    \item automatic CSRF protection
+    \item easy to use Vaadin components \textit{(for both Lit and React)} included out of the box
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:hilla:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{write weaknesses}
+    \item uses \acrshort{rpc} calls instead of \acrshort{rest}, meaning it always uses \textsc{post} requests, which hinders caching optimizations
+    \item locks the stack into Java Spring Boot with React or Lit
+    \item doesn't convert record generics
+    \item struggles with method overloading for endpoints
+    \item Java objects types get bloated with a custom Hilla \say{@Notnull} decorator
 \end{itemize}
+
+\subsection{Scores}
+\label{subsec:hilla:scores}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}            & \textbf{Score}                                        \\
+        \hline
+        Easiness/speed to learn    & 1                                                     \\ \hline
+        State management           & -                                                     \\ \hline
+        Boilerplate                & 0.5 \textit{(components: 0.5, state management: -)}   \\ \hline
+        \acrshort{api} integration & 0.5 \textit{(implementation is lacking for features)} \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:hilla:complexity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                          \\
+            \hline
+            Community                                & 0.3 \textit{(\autoref{tab:metrics:community})}                                                          \\ \hline
+            Professional Support                     & 1                                                                                                       \\ \hline
+            Documentation (interactive walkthrough?) & 0.5                                                                                                     \\ \hline
+            Ecosystem                                & 0.115 \textit{(quality: 0.23, size: 0; \autoref{tab:metrics:hilla:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 0.5                                                                                                     \\ \hline
+            Complexity                               & 0.666\dots \textit{(\autoref{tab:hilla:complexity})}                                                    \\ \hline
+            Server Side Rendered (SSR)               & -                                                                                                       \\ \hline
+        \end{tabular}
+    }
+    \caption{Hilla general scores}
+    \label{tab:hilla:scores}
+\end{table}
