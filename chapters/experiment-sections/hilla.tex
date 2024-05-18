@@ -9,7 +9,7 @@ Hilla, created by Vaadin, is a framework that builds on top of other \acrshort{j
 \subsubsection{Challenges and Considerations}
 \label{subsec:hilla:challenges}
 
-The integration of our system poses several notable challenges and considerations that must be carefully addressed. One significant issue is the reliance on \acrshort{rpc} calls rather than \acrshort{rest}. This architectural choice necessitates the exclusive use of \textsc{post} requests, which inherently limits the potential for caching optimizations. As a result, the system may experience inefficiencies in data retrieval and increased server load due to the inability to leverage more effective caching mechanisms typically available with other HTTP methods.
+The integration of our system poses several notable challenges and considerations that must be carefully addressed. One significant issue is the reliance on \acrshort{rpc} calls rather than \acrshort{rest}. This architectural choice necessitates the exclusive use of \textsc{post} requests, which inherently limits the potential for caching optimizations. As a result, the system may experience inefficiencies in data retrieval and increased server load due to the inability to leverage more effective caching mechanisms typically available with other \acrshort{http} methods.
 
 Another considerable challenge is the technological stack constraint, as the system is tightly coupled with Java Spring Boot for the backend and React or Lit for the frontend. This lock-in restricts flexibility in choosing alternative technologies and may hinder the adoption of more suitable or emerging frameworks that could better meet evolving project requirements.
 
