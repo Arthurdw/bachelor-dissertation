@@ -6,14 +6,14 @@
 
 Svelte, created by Rich Harris and maintained by the open-source community with support from Vercel \cite{vercel:welcomes_rich}, stands out for its compiled approach, speed, and simplicity, removing the need for boilerplate code. This framework has seen significant adoption, including in enterprise settings, and has developed a large and vibrant ecosystem.
 
-Components in Svelte are contained within a custom file type that is both readable and accessible, even for beginners. This file type is compiled into \acrshort{js}, \acrshort{html}, and \acrshort{css}, ensuring efficient and optimized performance. Unlike many other frameworks, Svelte does not use the \acrshort{vdom}, thereby avoiding its associated drawbacks. Additionally, Svelte automatically scopes styles, simplifying the management of component-specific styles and reducing the risk of style conflicts.
+Components in Svelte are contained within a custom file type that is both readable and accessible, even for beginners. This file type is compiled into \acrshort{js}, \acrshort{html}, and \acrshort{css}, ensuring efficient and optimized performance. Unlike many other frameworks, Svelte does not use the \acrshort{vdom}, thereby avoiding its associated drawbacks \cite{svelte:vdom}. Additionally, Svelte automatically scopes styles, simplifying the management of component-specific styles and reducing the risk of style conflicts. \cite{svelte:components}
 
-Svelte's popularity is reflected in its acclaim, having been voted the most loved and admired \acrshort{js} framework in the Stack Overflow survey \cite{stackoverflow:survey_2023}. Besides its technical strengths, Svelte offers an in-depth interactive walkthrough and excellent documentation, making it accessible to developers of all skill levels and easing the learning curve. Moreover, Svelte includes an SSR extension that offers numerous out-of-the-box features for full-stack development and emphasizes accessibility by providing linter warnings.
+Svelte's popularity is reflected in its acclaim, having been voted the most loved and admired \acrshort{js} framework in the Stack Overflow survey \cite{stackoverflow:survey_2023}. Besides its technical strengths, Svelte offers an in-depth interactive walkthrough and excellent documentation, making it accessible to developers of all skill levels and easing the learning curve. Moreover, Svelte includes an SSR extension that offers numerous out-of-the-box features for full-stack development and emphasizes accessibility by providing linter warnings \cite{svelte:kit,svelte:a11y}.
 
 \subsubsection{Challenges and Considerations}
 \label{subsec:svelte:challenges}
 
-Due to its anti-boilerplate philosophy, Svelte presents some challenges when writing advanced state manipulation logic. However, this issue is addressed in Svelte 5 with the introduction of Runes \textit{(Svelte 5 is, at the time of writing, not yet released nor does it have a planned release date)}. Using Svelte without its supported \acrshort{ssr} extension, called SvelteKit, can feel immature.
+Due to its anti-boilerplate philosophy, Svelte presents some challenges when writing advanced state manipulation logic. However, this issue is addressed in Svelte 5 with the introduction of Runes \textit{(Svelte 5 is, at the time of writing, not yet released nor does it have a planned release date)} \cite{svelte:runes}. Using Svelte without its supported \acrshort{ssr} extension, called SvelteKit, can feel immature.
 
 \subsection{Strengths}
 \label{subsec:svelte:strengths}
