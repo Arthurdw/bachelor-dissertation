@@ -1,35 +1,42 @@
-% + Pinia for global state management (officially supported)
-% + code is confined in one file (custom file type) and easily readable
-% + boilerplate free (besides setup which is automated by Vite)
-% + big ecosystem
-% + great documentation with interactive walkthrough
-% + gets used a lot (including in enterprises)
-% + performant out of the box
-% + professional support is available through 3rd parties
-% + easy state management, even in complex components
-% + backed by (financially stable) open source contributors
-% ~ uses VDOM, but makes compile time optimizations for this and for its state management
-% ~ client rendered (Nuxt or VuePress solve this)
-% - nested generics can cause troubles
-
 \section{Vue}
 \label{sec:vue}
 
 \subsection{Overview}
 \label{subsec:vue:overview}
 
-Vue, created by Evan You and maintained by the open source community. It has been financially sustainable since 2016 funded through sponsorships. It has been built to be approachable by using standard \acrshort{html}, \acrshort{css} and \acrshort{js}, greatly documented, performant updates by using compile time optimizations \cite{vue:home}. Just like Svelte \textit{(\ref{sec:svelte})} it uses its own file type which is very comparable in structure, the only difference is that unlike with Svelte you need to wrap your \acrshort{html} contents with a template tag \cite{svelte:components, vue:template_syntax}. This comes with the benefit of being almost boilerplate free. Also like React \textit{(\ref{sec:react})} it uses the \acrshort{vdom} to manage its reactivity logic \cite{react:vdom,vue:rendering_mechanism}. The Vue team also maintains two additional packages that are useful for big applications, these are the Vue Router and Pinia, which is a global state management system comparable to Redux \textit{(\ref{subsec:redux})}, but keeps the same state management logic as normal Vue state management processing \cite{vue:router,vue:pinia}. Making it extremely fast to learn and easy to use.
+Vue, created by Evan You and maintained by the open-source community, has been financially sustainable since 2016 through sponsorships \cite{vue:sponsor,vue:faq}. It is built to be approachable, utilizing standard \acrshort{html}, \acrshort{css}, and \acrshort{js}, and is extensively documented. Its updates are performant due to compile-time optimizations \cite{vue:home}.
 
-\itodo{vue: continue writing this}
+Like Svelte \textit{(\ref{sec:svelte})}, Vue uses its own file type, which is similar in structure. The primary difference is that in Vue, unlike Svelte, you need to wrap your \acrshort{html} content with a template tag \cite{svelte:components, vue:template_syntax}. This approach almost eliminates boilerplate code.
+
+Similar to React \textit{(\ref{sec:react})}, Vue uses the \acrshort{vdom} \textit{(\ref{subsec:vdom})} to manage its reactivity logic \cite{react:vdom,vue:rendering_mechanism}. Additionally, the Vue team maintains two packages beneficial for large applications: Vue Router and Pinia. Pinia serves as a global state management system, comparable to Redux \textit{(\ref{subsec:redux})}, but retains the same state management logic as standard Vue processes, making it extremely fast to learn and easy to use \cite{vue:router,vue:pinia}.
+
+Furthermore, Vue's state management system is easy to use and scalable, without the confusing side effects seen in React.
+
+\subsubsection{Challenges and Considerations}
+\label{subsec:vue:challenges}
+
+The \acrshort{vdom} introduces a memory overhead in the browser, which is a concern not present in other solutions that do not utilize the \acrshort{vdom}. Despite several compile-time optimizations, this overhead remains an issue. Additionally, there are no officially supported \acrshort{ssr} solutions for \acrshort{vdom}. However, popular and stable alternatives like Nuxt.js and VuePress are available. Lastly, there have been issues with nested generics passing through slots not correctly detecting types, but this is a narrow problem that will likely be resolved with a future patch.
 
 \subsection{Strengths}
 \label{subsec:vue:strengths}
 \begin{itemize}
-    \item strength! \todo{vue: write strengths}
+    \item great official global state management library \textit{(Pinia)}
+    \item great official router library \textit{(Vue Router)}
+    \item custom file type that is easy to learn and readable
+    \item great documentation with an interactive walkthrough
+    \item lots of usage, including in enterprises
+    \item big ecosystem
+    \item performant out of the box due to compile time optimizations
+    \item easy to learn and maintainable state management system
+    \item financially stable
+    \item backed by Vercel
+    \item boilerplate free
 \end{itemize}
 
 \subsection{Weaknesses}
 \label{subsec:vue:weaknesses}
 \begin{itemize}
-    \item weakness! :( \todo{vue: write weaknesses}
+    \item \acrshort{vdom} memory overhead
+    \item no out of the box \acrshort{ssr} solution
+    \item issues with nested generics to child params
 \end{itemize}
