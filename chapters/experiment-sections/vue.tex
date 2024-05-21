@@ -40,3 +40,42 @@ The \acrshort{vdom} introduces a memory overhead in the browser, which is a conc
     \item no out of the box \acrshort{ssr} solution
     \item issues with nested generics to child params
 \end{itemize}
+
+
+\subsection{Scores}
+\label{subsec:vue:scores}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Method}            & \textbf{Score}                                    \\
+        \hline
+        Easiness/speed to learn    & 1                                                 \\ \hline
+        State management           & 1                                                 \\ \hline
+        Boilerplate                & 1 \textit{(components: 1, state management: 1)}   \\ \hline
+        \acrshort{api} integration & 0 \textit{(default browser fetch \acrshort{api})} \\ \hline
+    \end{tabular}
+    \caption{complexity}
+    \label{tab:vue:complexity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Method}                          & \textbf{Score}                                                                                          \\
+            \hline
+            Community                                & 0.8 \textit{(\autoref{tab:metrics:community})}                                                          \\ \hline
+            Professional Support                     & 1                                                                                                       \\ \hline
+            Documentation (interactive walkthrough?) & 1                                                                                                       \\ \hline
+            Ecosystem                                & 0.775 \textit{(quality: 0.85, size: 0.7; \autoref{tab:metrics:vue:ratings} \autoref{tab:metrics:size})} \\ \hline
+            Usage by other enterprises               & 1                                                                                                       \\ \hline
+            Complexity                               & 0.75 \textit{(\autoref{tab:vue:complexity})}                                                            \\ \hline
+            Server Side Rendered (SSR)               & 0.5                                                                                                     \\ \hline
+        \end{tabular}
+    }
+    \caption{Vue general scores}
+    \label{tab:vue:scores}
+\end{table}
