@@ -4,7 +4,7 @@ This study examined various methods for building web applications, evaluating th
 
 \section{Summary of Findings}
 
-The research indicates that Svelte, Vue, and React are top choices for general use, with each framework offering unique advantages.
+The research indicates that Svelte, Vue, Angular, and React are top choices for general use, with each framework offering unique advantages.
 
 \begin{enumerate}
     \item Svelte scored the highest overall, being straightforward to use for simple applications but requiring improvements in state management for more complex projects.
@@ -15,9 +15,54 @@ The research indicates that Svelte, Vue, and React are top choices for general u
     \item Hilla introduces a novel frontend-backend communication concept and could pair well with React if current issues are resolved.
 \end{enumerate}
 
-\section{Implications}
+\section{Concluding Scores}
 
-The choice of a web framework should be tailored to the specific needs of the project. For non-\acrshort{ssr}, while React's extensive ecosystem makes it versatile. Angular offers unique features for the developer experience but needs to catch up in other areas.
+The tables provide a quick summary of the ratings for each web framework, with the best score highlighted in bold.
+
+\subsection{General Complexity}
+
+The sources for each complexity score are derived from the following tables: \autoref{tab:angular:complexity}, \autoref{tab:lit:complexity}, \autoref{tab:react:complexity}, \autoref{tab:hilla:complexity}, \autoref{tab:svelte:complexity}, \autoref{tab:vue:complexity}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+        \textbf{Method}            & Angular      & Lit  & React      & Hilla        & Svelte     & Vue        \\
+        \hline
+        Easiness/speed to learn    & 0.5          & 0.5  & \textbf{1} & \textbf{1}   & \textbf{1} & \textbf{1} \\ \hline
+        State management           & 0            & 0.5  & 0.5        & -            & 0.5        & \textbf{1} \\ \hline
+        Boilerplate                & 0            & 0.75 & 0.5        & 0.5          & \textbf{1} & \textbf{1} \\ \hline
+        \acrshort{api} integration & \textbf{0.5} & 0    & 0          & \textbf{0.5} & 0          & 0          \\ \hline
+    \end{tabular}
+    \caption{General complexity overview}
+    \label{tab:conclusion:complexity}
+\end{table}
+
+\subsection{General Scores}
+
+The sources for each general score are derived from the following tables: \autoref{tab:angular:scores}, \autoref{tab:lit:scores}, \autoref{tab:react:scores}, \autoref{tab:hilla:scores}, \autoref{tab:svelte:scores}, \autoref{tab:vue:scores}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\columnwidth}{!}{
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+            \textbf{Method}                          & Angular    & Lit        & React         & Hilla      & Svelte         & Vue           \\
+            \hline
+            Community                                & 0.6        & 0.3        & \textbf{1}    & 0.3        & 0.7            & 0.8           \\ \hline
+            Professional Support                     & \textbf{1} & 0          & \textbf{1}    & \textbf{1} & \textbf{1}     & \textbf{1}    \\ \hline
+            Documentation (interactive walkthrough?) & \textbf{1} & \textbf{1} & 0.5           & 0.5        & \textbf{1}     & \textbf{1}    \\ \hline
+            Ecosystem                                & 0.81       & 0.465      & \textbf{0.94} & 0.115      & 0.565          & 0.775         \\ \hline
+            Usage by other enterprises               & \textbf{1} & 0.5        & \textbf{1}    & 0.5        & \textbf{1}     & \textbf{1}    \\ \hline
+            Complexity                               & 0.25       & 0.44       & 0.5           & 0.666\dots & 0.625          & \textbf{0.75} \\ \hline
+            Server Side Rendered (SSR)               & \textbf{1} & 0.5        & 0.5           & -          & \textbf{1}     & 0.5           \\ \hline
+            General Score                            & 0.809      & 0.458      & 0.777         & 0.514      & \textbf{0.841} & 0.832         \\ \hline
+        \end{tabular}
+    }
+    \caption{General scores overview}
+    \label{tab:conclusion:scores}
+\end{table}
 
 \section{Limitations}
 
