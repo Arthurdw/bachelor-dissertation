@@ -29,12 +29,12 @@ We can use \acrfull{jsx}, which is neither \acrshort{js} nor a string. Instead, 
 \subsection{Update Process}
 \label{subsec:react:update_process}
 
-The update process of React is highly reliable. It involves testing the entire React-meta codebase, which comprises over 50,000 components, to determine if deprecating a method requires many changes. Only after this testing, does the React team decide if deprecation is necessary. If it is, they release a warning to the open-source community, which remains for one version. After that, the deprecated item is completely removed. In case many changes are needed to address the deprecation warning, scripts are built to make the migration as automatic as possible \cite{react:design_principles}.
+The update process of React is highly reliable. It involves testing the entire React-meta codebase, which comprises over 50,000 components, to determine if deprecating a method requires many changes. Only after this testing, does the React team decide if deprecation is necessary. If it is, they release a warning to the open-source community, which remains for one version. After that, the deprecated item is completely removed. In case many changes are needed to address the deprecation warning, scripts are built to make the migration as automatic as possible. \cite{react:design_principles}
 
 \subsection{Virtual DOM}
 \label{subsec:vdom}
 
-The \acrfull{vdom} is a mirrored version of the real \acrshort{dom}. Represented as in-memory objects \textit{(eg. \autoref{lst:vdom_representation})} which can easily be traversed \textit{(as no \acrshort{dom} needs to be parsed)}, checked for changes, and used for other optimizations. For example, if a type of a \acrshort{vdom} element is changed it will tear down the old tree and rebuild the tree from scratch, but if the type is the same it will only update the attributes. Or if a key is set the reconciler can easily detect what items need to update  \textit{(\ref{subsec:react:reconciliation_algorithm}, \cite{react:reconciliation, acdlite:react_fiber_architecture})}.
+The \acrfull{vdom} is a mirrored version of the real \acrfull{dom}. Represented as in-memory objects \textit{(eg. \autoref{lst:vdom_representation})} which can easily be traversed \textit{(as no \acrshort{dom} needs to be parsed)}, checked for changes, and used for other optimizations. For example, if a type of a \acrshort{vdom} element is changed it will tear down the old tree and rebuild the tree from scratch, but if the type is the same it will only update the attributes. Or if a key is set the reconciler can easily detect what items need to update  \textit{(\ref{subsec:react:reconciliation_algorithm}, \cite{react:reconciliation, acdlite:react_fiber_architecture})}.
 
 Although the \acrshort{vdom} incurs more overhead as the browser has to keep the entirety in memory, it offers greater flexibility for the reconciler. For instance, the React reconciler can not only process the \acrshort{dom} but also native iOS and Android displays \textit{(with React Native)} \cite{acdlite:react_fiber_architecture}. Additionally, the \acrshort{vdom} enables more unique optimizations such as the pull technique instead of push, which allows the prioritization of user interactions over background tasks \cite{react:design_principles}. Moreover, it allows the renders to be batched instead of each one being its own operation.
 
@@ -55,8 +55,8 @@ Although the \acrshort{vdom} incurs more overhead as the browser has to keep the
 There are generic solutions to the algorithmic problem of diffing and transforming one tree into another. However, the existing algorithms are expensive at $O(n^3)$ \cite{bille2005survey}. Because this is too expensive for a web \gls{framework}, the react reconciler implements a $O(n)$ algorithm based on two assumptions \cite{react:reconciliation}.
 
 \begin{enumerate}
-    \item \say{Two elements of different types will produce different tries.} which is why if the type is different the tear will be torn down.
-    \item \say{The developer can hint at which child elements may be stable across different renders with a \textsl{key} prop.}
+    \item \say{Two elements of different types will produce different tries.} which is why if the type is different the trie will be torn down and rebuilt for the new type.
+    \item \say{The developer can hint at which child elements may be stable across different renders with a \textsl{key} prop.} which can prevent the aforementioned behavior, allowing render optimizations such as memoization.
 \end{enumerate}
 
 \subsection{State Management}
@@ -148,7 +148,6 @@ To mitigate this challenge, developers often turn to Redux, a state management l
     \item Component tries can cause unexpected behavior
     \item client-side rendered \textit{(solution: Next.js or canary \say{use server} directive \cite{react:use_server_directive})}
     \item State management can easily become complex in bigger components.
-    \item basic dependencies \textit{(React, Redux, \acrshort{i18n})} that get sent to the client are about ~12MB which is relatively big and can slow down the initial load
 \end{itemize}
 
 \subsection{Scores}

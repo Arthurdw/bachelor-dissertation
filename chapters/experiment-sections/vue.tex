@@ -4,9 +4,9 @@
 \subsection{Overview}
 \label{subsec:vue:overview}
 
-Vue, created by Evan You and maintained by the open-source community, has been financially sustainable since 2016 through sponsorships \cite{vue:sponsor,vue:faq}. It is built to be approachable, utilizing standard \acrshort{html}, \acrshort{css}, and \acrshort{js}, and is extensively documented. Its updates are performant due to compile-time optimizations \cite{vue:home}.
+Vue, created by Evan You, and maintained by the open-source community, has been financially sustainable since 2016 through sponsorships \cite{vue:sponsor,vue:faq}. It is built to be approachable, utilizing standard \acrshort{html}, \acrshort{css}, and \acrshort{js}, and is extensively documented. Its updates are performant due to compile-time optimizations \cite{vue:home}.
 
-Like Svelte \textit{(\ref{sec:svelte})}, Vue uses its own file type, which is similar in structure. The primary difference is that in Vue, unlike Svelte, you need to wrap your \acrshort{html} content with a template tag \cite{svelte:components, vue:template_syntax}. This approach almost eliminates boilerplate code.
+Like Svelte \textit{(\ref{sec:svelte})}, Vue uses its own file type, which is similar in structure. The primary difference is that in Vue, unlike Svelte, you need to wrap your \acrshort{html} content with a template tag \cite{svelte:components, vue:template_syntax}.
 
 Similar to React \textit{(\ref{sec:react})}, Vue uses the \acrshort{vdom} \textit{(\ref{subsec:vdom})} to manage its reactivity logic \cite{react:vdom,vue:rendering_mechanism}. Additionally, the Vue team maintains two packages beneficial for large applications: Vue Router and Pinia. Pinia serves as a global state management system, comparable to Redux \textit{(\ref{subsec:redux})}, but retains the same state management logic as standard Vue processes, making it extremely fast to learn and easy to use \cite{vue:router,vue:pinia}.
 
@@ -15,7 +15,7 @@ Furthermore, Vue's state management system is easy to use and scalable, without 
 \subsubsection{Challenges and Considerations}
 \label{subsec:vue:challenges}
 
-The \acrshort{vdom} introduces a memory overhead in the browser, which is a concern not present in other solutions that do not utilize the \acrshort{vdom}. Despite several compile-time optimizations, this overhead remains an issue. Additionally, there are no officially supported \acrshort{ssr} solutions for \acrshort{vdom}. However, popular and stable alternatives like Nuxt.js and VuePress are available. Lastly, there have been issues with nested generics passing through slots not correctly detecting types, but this is a narrow problem that will likely be resolved with a future patch.
+The \acrshort{vdom} introduces a memory overhead in the browser, which is a concern not present in other solutions that do not utilize the \acrshort{vdom}. Despite several compile-time optimizations, this overhead remains an issue. Additionally, there are no officially supported \acrshort{ssr} solutions. However, popular and stable extensions like Nuxt.js and VuePress are available. Lastly, there have been issues with nested generics passing through slots not correctly detecting types, but this is a narrow problem that will likely be resolved with a future patch.
 
 \subsection{Strengths}
 \label{subsec:vue:strengths}

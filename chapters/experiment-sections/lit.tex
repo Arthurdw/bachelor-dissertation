@@ -15,7 +15,7 @@ Web components, unlike other solutions, aren't widely adopted, leading to a smal
 \subsection{Shadow DOM}
 \label{subsec:lit:shadow_dom}
 
-The Shadow \acrshort{dom} is a web standard that creates encapsulated components in web applications. It hides \acrshort{html}, \acrshort{css}, and \acrlong{js} within a scoped boundary. By attaching a separate \acrshort{dom} tree to an element, it shields internal structure and styles, preventing conflicts and unintended manipulation from external sources. This isolation fosters reusable, modular components, enhancing maintainability and code reusability in web development. \cite{mdn:shadow_dom} However, challenges exist with assistive technologies, developer experience, and \acrshort{seo} integration. \cite{designsystemcentral:web_components, manuel:shadow_dom}
+The Shadow \acrshort{dom} is a web standard that creates encapsulated components in web applications. It hides \acrshort{html}, \acrshort{css}, and \acrlong{js} within a scoped boundary. By attaching a separate \acrshort{dom} tree to an element, it shields internal structure and styles, preventing conflicts and unintended manipulation from external sources. This isolation fosters reusable, modular components, enhancing maintainability and code reusability in web development \cite{mdn:shadow_dom}. However, challenges exist with assistive technologies, developer experience, and \acrshort{seo} integration \cite{designsystemcentral:web_components, manuel:shadow_dom}.
 
 \subsection{Strengths}
 \label{subsec:lit:strengths}
@@ -26,7 +26,7 @@ The Shadow \acrshort{dom} is a web standard that creates encapsulated components
     \item uses plain \acrshort{html}, \acrshort{js}/\acrshort{ts}
     \item compatible with any web solution
     \item backed by Google
-    \item Shadow \acrshort{dom} ensures that components behave consistent
+    \item Shadow \acrshort{dom} ensures that components behave consistent across environments
 \end{itemize}
 
 \subsection{Weaknesses}
@@ -37,7 +37,7 @@ The Shadow \acrshort{dom} is a web standard that creates encapsulated components
     \item mediocre documentation
     \item Shadow \acrshort{dom} drawbacks can interfere with development simplicity
     \item \acrshort{ide} integration lacks compared to other solutions
-    \item calls are by reference which changes the \acrshort{js} \texttt{this} context
+    \item calls are by reference which changes the \acrshort{js} \texttt{this} context which can be confusing
 \end{itemize}
 
 

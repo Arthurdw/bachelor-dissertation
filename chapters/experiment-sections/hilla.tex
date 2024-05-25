@@ -9,7 +9,7 @@ Hilla, created by Vaadin, is a \gls{framework} that builds on top of other \acrs
 \subsubsection{Challenges and Considerations}
 \label{subsec:hilla:challenges}
 
-The integration of our system poses several notable challenges and considerations that must be carefully addressed. One significant issue is the reliance on \acrshort{rpc} calls rather than \acrshort{rest}. This architectural choice necessitates the exclusive use of \textsc{post} requests, which inherently limits the potential for caching optimizations. As a result, the system may experience inefficiencies in data retrieval and increased server load due to the inability to leverage more effective caching mechanisms typically available with other \acrshort{http} methods. \cite{restfulapi:caching,stackoverflow:chrome_cache}
+Integration poses several notable challenges and considerations that must be carefully addressed. One significant issue is the reliance on \acrshort{rpc} calls rather than \acrshort{rest}. This architectural choice necessitates the exclusive use of \textsc{post} requests, which inherently limits the potential for caching optimizations. As a result, the system may experience inefficiencies in data retrieval and increased server load due to the inability to leverage more effective caching mechanisms typically available with other \acrshort{http} methods. \cite{restfulapi:caching,stackoverflow:chrome_cache}
 
 Another considerable challenge is the technological stack constraint, as the system is tightly coupled with Java Spring Boot for the backend and React or Lit for the frontend. This lock-in restricts flexibility in choosing alternative technologies and may hinder the adoption of more suitable or emerging frameworks that could better meet evolving project requirements.
 
@@ -17,7 +17,7 @@ Additionally, the system does not support the conversion of record generics, whi
 
 Method overloading for endpoints presents another area of difficulty. The system struggles with managing multiple methods that share the same name but differ in parameters, which can lead to ambiguous endpoint definitions and increased potential for errors. This issue complicates the API design and can result in less intuitive and harder-to-maintain code.
 
-Furthermore, Java object types within the system are prone to bloat due to the custom Hilla \say{@Notnull} decorator. This decorator, while intended to ensure non-null constraints, adds additional overhead and complexity to the object types. The increased verbosity and clutter in the code can detract from readability and maintainability, making it more challenging for developers to navigate and understand the system.
+Furthermore, Java object types within the system are prone to bloat due to the custom Hilla \say{@Notnull} decorator. This decorator, while intended clarify nullable values for the type conversion, adds additional overhead and complexity to the object types. The increased verbosity and clutter in the code can detract from readability and maintainability, making it more challenging for developers to navigate and understand the system.
 
 
 \subsection{Strengths}
