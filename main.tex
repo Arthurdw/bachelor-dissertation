@@ -142,6 +142,8 @@
 \usepackage{cleveref}
 \usepackage[all]{hypcap}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 \usepackage[style=ieee]{biblatex}
 \addbibresource{references.bib}
@@ -234,11 +236,18 @@
 
 \input{chapters/foreword}
 \thispagestyle{plain}
-\emptypage
+\cleardoublepage
+
+\makeatletter
+\renewcommand\tableofcontents{
+    \section*{\contentsname}
+    \pagestyle{empty}
+    \@starttoc{toc}
+}
+\makeatother
 
 \tableofcontents
-\thispagestyle{plain}
-\emptypage
+\cleardoublepage
 
 \newpage
 \pagenumbering{arabic}
